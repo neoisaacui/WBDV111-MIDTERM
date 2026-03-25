@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Management</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f4f4;
+}
+
+header{
+    background:#d6c8a8;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    margin:0;
+}
+
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.manage{
+    padding:40px;
+}
+
+.manage h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+table{
+    width:80%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th, td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background:#333;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+.overdue{
+    background:#ffcccc;
+    color:red;
+    font-weight:bold;
+}
+
+.search-bar button{
+    padding:8px 12px;
+    background:#2a7de1;
+    color:white;
+    border:none;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1>LibraryConnect</h1>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="status.html">Book Management</a>
+        <a href="memlists.html">Members List</a>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search books...">
+        <button>Search</button>
+    </div>
+
+</header>
+
+<section class="manage">
+<h2>Library Book Management</h2>
+
+<table>
+<tr>
+<th>Book Title</th>
+<th>Status</th>
+<th>Due Date</th>
+</tr>
+
+<tr>
+<td>The Hobbit</td>
+<td>Borrowed</td>
+<td>June 20, 2026</td>
+</tr>
+
+<tr>
+<td>Dune</td>
+<td>Available</td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>The Martian</td>
+<td>Borrowed</td>
+<td>June 25, 2026</td>
+</tr>
+
+<tr class="overdue">
+<td>Harry Potter and the Sorcerer's Stone</td>
+<td>Overdue</td>
+<td>May 30, 2026</td>
+</tr>
+
+<tr>
+<td>The Da Vinci Code</td>
+<td>Borrowed</td>
+<td>June 22, 2026</td>
+</tr>
+
+<tr class="overdue">
+<td>1984</td>
+<td>Overdue</td>
+<td>May 28, 2026</td>
+</tr>
+
+<tr>
+<td>To Kill a Mockingbird</td>
+<td>Available</td>
+<td>—</td>
+</tr>
+
+<tr>
+<td>The Great Gatsby</td>
+<td>Borrowed</td>
+<td>June 27, 2026</td>
+</tr>
+
+</table>
+</section>
+
+</body>
+</html>

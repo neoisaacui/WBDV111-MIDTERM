@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Members List</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+header{
+    background:#d6c8a8;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    margin:0;
+}
+
+.navbar {
+    background: #d6c8a8;
+    padding: 15px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 50px; 
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 40px; 
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar ul li a:hover {
+    color: #ffd700;
+}
+
+.members {
+    padding: 40px;
+}
+
+.members h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #333;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1>LibraryConnect</h1>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="status.html">Book Management</a>
+        <a href="memlists.html">Members List</a>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search books...">
+        <button>Search</button>
+    </div>
+
+</header>
+
+<section class="members">
+
+<h2>Library Members</h2>
+
+<table>
+<tr>
+<th>Member Name</th>
+<th>Member ID</th>
+<th>Books Borrowed</th>
+</tr>
+
+<tr>
+<td>Aniah Beyonce</td>
+<td>M019</td>
+<td>Harry Potter and the Sorcerer's Stone</td>
+</tr>
+
+<tr>
+<td>Pancho Woof</td>
+<td>M015</td>
+<td>The Hobbit</td>
+</tr>
+
+<tr>
+<td>Cooper Flagg</td>
+<td>M030</td>
+<td>The Martian</td>
+</tr>
+
+<tr>
+<td>Austin Reaves</td>
+<td>M021</td>
+<td>The Da Vinci Code</td>
+</tr>
+
+<tr>
+<td>Luka Doncic</td>
+<td>M077</td>
+<td>The Great Gatsby</td>
+</tr>
+
+<tr>
+<td>Lamelo Ball</td>
+<td>M001</td>
+<td>1984</td>
+</tr>
+
+</table>
+
+</section>
+
+</body>
+</html>

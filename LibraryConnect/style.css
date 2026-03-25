@@ -1,0 +1,128 @@
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f4f4f4;
+    
+}
+
+
+header{
+    background:#d6c8a8;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    margin:0;
+}
+
+.search-bar input{
+    padding:8px;
+    width:200px;
+}
+
+.search-bar button{
+    padding:8px 12px;
+    background:#2a7de1;
+    color:white;
+    border:none;
+}
+
+
+.welcome{
+    padding:30px;
+    text-align:center;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    width:200px;
+    border-radius:5px;
+}
+
+/* BOOKS */
+
+.books{
+    padding:30px;
+}
+
+.book-container{
+    display:flex;
+    gap:20px;
+}
+
+.book{
+    text-align:center;
+}
+
+.book img{
+    width:120px;
+    height:180px;
+    display:block;
+}
+
+.book button{
+    margin-top:10px;
+    padding:6px 10px;
+    background:#007bff;
+    color:white;
+    border:none;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#333;
+    padding:15px;
+}
+
+.navbar .logo{
+    color:white;
+}
+
+.navbar ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+.navbar ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.navbar ul li a:hover{
+    color:#ffd700;
+}
+
+.header{
+    background:#d6c8a8;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-links a{
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:bold;
+    color:black;
+}
+
+.nav-links a:hover{
+    color:blue;
+}
+
+
