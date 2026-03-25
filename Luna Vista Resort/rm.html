@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Room | Luna Vista Resort</title>
+<style>
+:root{
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --card-bg: rgba(20, 30, 40, 0.85);
+  --card-hover: rgba(35, 50, 65, 0.95);
+  --heading-color: #f0c987;
+  --text-color: #e0e0e0;
+  --button-bg: #f0c987;
+  --button-hover: #e6b85c;
+  --button-text: #1a1a1a;
+  --border: rgba(255,255,255,0.1);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  font-family:"Trebuchet MS","Segoe UI",sans-serif;
+  min-height:100vh;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  overflow-x: hidden;
+  background: url('https://i.pinimg.com/1200x/f5/c2/74/f5c2749460e4f0de61f601f9e8d69cd6.jpg') center/cover no-repeat;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  background: rgba(10,20,30,0.8);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top:0;
+  z-index:10;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.brand{ color: var(--heading-color); font-weight:bold; font-size:22px; text-decoration:none;}
+.menu{ display:flex; gap:20px; list-style:none;}
+.menu a{ text-decoration:none; color: var(--text-color); font-weight:600; transition:0.3s;}
+.menu a:hover{ color: var(--button-bg);}
+
+.glass-card{
+  max-width: 900px;
+  margin: 120px auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+.glass-card:hover{
+  background: var(--card-hover);
+}
+
+.glass-card h1{ font-size:32px; margin-bottom:15px; color: var(--heading-color);}
+.glass-card p{ line-height:1.6; margin-bottom:20px; color: var(--text-color);}
+
+.room-images{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+.room-images img{
+  width: calc(50% - 10px);
+  border-radius:16px;
+  object-fit: cover;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+}
+
+.amenities h3{ color: var(--button-bg); margin-bottom:10px; }
+.amenities ul{ list-style: disc inside; color: var(--text-color); }
+
+.cta-btn{
+  display:inline-block;
+  margin-top:15px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding:12px 25px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+.cta-btn:hover{
+  background: var(--button-hover);
+  color: var(--button-text);
+}
+
+.site-footer{
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+  background: rgba(10,20,30,0.8);
+  border-top:1px solid var(--border);
+  color: var(--text-color);
+}
+
+@media(max-width:760px){
+  .glass-card{ margin:100px 15px; padding:25px; }
+  .topbar{flex-direction:column; gap:10px;}
+  .menu{flex-wrap:wrap;}
+  .room-images img{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="rooms.html">Luna Vista Resort</a>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="about.html">About Luna Vista</a></li>
+    <li><a href="reservation.html">Reservation</a></li>
+  </ul>
+</header>
+
+<div class="glass-card">
+  <h1>Standard Room</h1>
+
+  <div class="room-images">
+    <img src="https://i0.wp.com/lacarmeladeboracay.com/wp-content/uploads/std-01.jpg?w=1024&ssl=1" alt="Standard Room 1">
+    <img src="https://i0.wp.com/lacarmeladeboracay.com/wp-content/uploads/std-02.jpg?w=1024&ssl=1" alt="Standard Room 2">
+    <img src="https://i0.wp.com/lacarmeladeboracay.com/wp-content/uploads/std-03.jpg?w=1024&ssl=1" alt="Standard Room 3">
+    <img src="https://i0.wp.com/lacarmeladeboracay.com/wp-content/uploads/std-03.jpg?w=1024&ssl=1" alt="Standard Room 4">
+  </div>
+
+  <p>Our Standard Room in the Main Building offers a cozy and comfortable stay, perfect for solo travelers or couples, with modern amenities and a relaxing ambiance.</p>
+
+  <div class="amenities">
+    <h3>Amenities</h3>
+    <ul>
+      <li>Air-conditioned rooms, Cable TV, PBX phone system</li>
+      <li>Mini-refrigerator</li>
+      <li>Private bath with hot & cold shower</li>
+      <li>Upper levels accessible via elevator</li>
+      <li>Air-conditioned function rooms with multimedia equipment (50-1,800 persons)</li>
+      <li>Swimming pool</li>
+      <li>Restaurant (Cafe La Carmela)</li>
+      <li>Safety deposit boxes for safekeeping of valuables</li>
+      <li>24-hour standby generator</li>
+      <li>24-hour security personnel</li>
+      <li>Land and boat transfers</li>
+    </ul>
+  </div>
+
+  <a href="reservation.html" class="cta-btn">Book This Room</a>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 Luna Vista Resort</p>
+</footer>
+
+</body>
+</html>
