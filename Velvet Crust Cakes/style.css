@@ -1,0 +1,168 @@
+:root {
+--primary:#8B5E5E;
+--primary-dark:#6d4747;
+--accent:#F6D6D6;
+--cream:#FFF8F2;
+--gold:#E8C07D;
+--glass:rgba(255,255,255,0.15);
+--glass-border:rgba(255,255,255,0.35);
+--text-dark:#3b2b2b;
+--text-light:#ffffff;
+}
+
+body {
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:
+radial-gradient(circle at top left,#ffe9e9,transparent),
+radial-gradient(circle at bottom right,#f6d6d6,transparent),
+#fdf6f0;
+min-height:100vh;
+color:var(--text-dark);
+}
+
+nav {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1rem 8%;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo {
+font-size:1.7rem;
+font-weight:bold;
+color:var(--primary);
+}
+
+.nav-links a {
+margin-left:12px;
+}
+
+.container {
+background:var(--glass);
+backdrop-filter:blur(25px);
+border:1px solid var(--glass-border);
+border-radius:40px;
+padding:40px;
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
+margin:40px auto;
+width:90%;
+max-width:1100px;
+}
+
+input {
+    color: var(--text-dark) !important;
+}
+
+.centered-card {
+max-width:450px;
+margin:100px auto;
+text-align:center;
+}
+
+.hero {
+width:100%;
+}
+
+.carousel {
+position:relative;
+width:100%;
+height:75vh;
+overflow:hidden;
+}
+
+.carousel-img {
+width:100%;
+height:100%;
+object-fit:cover;
+transition:opacity .8s ease-in-out;
+}
+
+.carousel-overlay {
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:60px 8%;
+background:linear-gradient(transparent,rgba(0,0,0,.65));
+}
+
+.carousel-overlay h1 {
+font-size:3rem;
+margin-bottom:10px;
+color:white;
+}
+
+.carousel-overlay p {
+font-size:1.2rem;
+max-width:600px;
+opacity:.95;
+color:white;
+}
+
+.btn-cream {
+background:var(--cream);
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+color:var(--text-dark);
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-cream:hover {
+transform:scale(1.05);
+}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.cake-card {
+background:white;
+border-radius:24px;
+padding:16px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.25s;
+position:relative;
+}
+
+.cake-card:hover {
+transform:translateY(-8px);
+}
+
+.category-tag {
+position:absolute;
+top:12px;
+left:12px;
+background:var(--accent);
+padding:4px 10px;
+border-radius:20px;
+font-size:.75rem;
+font-weight:bold;
+}
+
+.modal-overlay {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.4);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
