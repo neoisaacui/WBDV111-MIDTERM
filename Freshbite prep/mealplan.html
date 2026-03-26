@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Meal Plans</title>
+
+<style>
+:root {
+  --bg-main: #f9f9f9;       
+  --card-bg: #ffffff;         
+  --navbar-bg: #4CAF50;        
+  --primary: #2E7D32;         
+  --primary-light: #81C784;    
+  --text-main: #212121;        
+  --text-muted: #555555;     
+  --border: #e0e0e0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-main);
+  padding: 40px;
+  margin: 0;
+  color: var(--text-main);
+}
+
+
+.navbar {
+  background: var(--navbar-bg);
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: var(--primary-light);
+}
+
+
+h2 {
+  margin: 25px 0;
+  font-size: 28px;
+}
+
+
+.plan {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  max-width: 520px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.plan h3 {
+  margin-top: 0;
+  font-size: 22px;
+  color: var(--text-main);
+}
+
+.price {
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: bold;
+  margin: 8px 0 15px;
+}
+
+
+.plan ul {
+  padding-left: 20px;
+}
+
+.plan li {
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+
+.plan a {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.plan a:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46,204,113,0.3);
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="navbar">
+  <a href="index.html">⬅ Back to Menu</a>
+</div>
+
+<h2>Meal Subscription Plans</h2>
+
+<div class="plan">
+  <h3>Basic Plan</h3>
+  <p class="price">₱850 / week</p>
+  <ul>
+    <li>🍽 1 Balanced Meal per Day</li>
+    <li>🥗 Nutrition Guide: High protein, moderate carbs</li>
+    <li>📋 Diet Guide: Weight maintenance & daily energy</li>
+  </ul>
+  <a href="subscribe.html">Avail Now!</a>
+</div>
+
+<div class="plan">
+  <h3>Standard Plan</h3>
+  <p class="price">₱1,500 / week</p>
+  <ul>
+    <li>🍽 1 Premium Meal per Day</li>
+    <li>🥗 Nutrition Guide: High protein, low saturated fat</li>
+    <li>📋 Diet Guide: Fat loss & muscle support</li>
+  </ul>
+  <a href="subscribe.html">Avail Now!</a>
+</div>
+
+<div class="plan">
+  <h3>Premium Plan</h3>
+  <p class="price">₱2,300 / week</p>
+  <ul>
+    <li>🍽 1 Chef-Curated Meal per Day</li>
+    <li>🥗 Nutrition Guide: Macro-balanced & nutrient-dense</li>
+    <li>📋 Diet Guide: Performance, wellness & active lifestyle</li>
+  </ul>
+  <a href="subscribe.html">Avail Now!</a>
+</div>
+
+</body>
+</html>
