@@ -4,7 +4,7 @@ let user = document.getElementById("username").value
 let pass = document.getElementById("password").value
 
 if(user === "admin" && pass === "1234"){
-window.location = "dashboard.html"
+window.location = "index.html"
 }
 else{
 alert("Invalid login")
