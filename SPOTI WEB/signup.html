@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpotiWeb</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.signup-card {
+  background: #121212;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.brand h1 span {
+  color: #1DB954;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #b3b3b3;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: white;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #1DB954;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1DB954;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  background: #1ed760;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #b3b3b3;
+}
+
+.footer a {
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-card">
+  <div class="brand">
+    <h1>Spoti<span>Web</span></h1>
+    <p>Create your account</p>
+  </div>
+
+  <form onsubmit="signup(event)">
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" required>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" required>
+    </div>
+
+    <div class="input-group">
+      <label>Confirm Password</label>
+      <input type="password" required>
+    </div>
+
+    <button class="signup-btn">Sign Up</button>
+
+    <div class="footer">
+      Already have an account? <a href="login.html">Log in</a>
+    </div>
+  </form>
+</div>
+
+<script>
+function signup(e) {
+  e.preventDefault();
+  alert("Account created successfully!");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

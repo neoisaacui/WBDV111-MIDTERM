@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+     
+        body {
+            margin: 0;
+            background: #0f0f0f;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .album-page {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+        .back-btn {
+            align-self: flex-start;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+
+       
+        .album-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .album-header img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+
+        .album-header img:hover {
+            transform: scale(1.05);
+        }
+
+        .album-info h1 {
+            margin: 10px 0 5px 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .album-info p {
+            margin: 3px 0;
+            color: #c0c0c0;
+            font-size: 1rem;
+        }
+
+       
+        .tracklist {
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .track {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 20px;
+            background: #1a1a1a;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .track:hover {
+            background: #2a2a2a;
+            transform: scale(1.02);
+        }
+
+        .track span {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .duration {
+            margin-left: 10px;
+            color: #b3b3b3;
+            width: 50px;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .play-btn {
+            background: #6a11cb;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: #2575fc;
+        }
+
+       
+        .player-controls {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn {
+            background: #6a11cb;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            background: #2575fc;
+        }
+
+        .volume-slider {
+            width: 120px;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+    <title>I Am Music Album</title>
+</head>
+<body>
+    <div class="album-page">
+
+        <a href="index.html" class="back-btn">← Back to Library</a>
+
+        <div class="album-header">
+            <img src="iammusic.jpg" alt="I Am Music">
+            <div class="album-info">
+                <h1>MUSIC</h1>
+                <p>PlayBoi Carti</p>
+                <p>2025</p>
+            </div>
+        </div>
+
+        <div class="tracklist">
+            <div class="track">
+                <span>RATHER LIE</span>
+                <span class="duration"></span>
+                <div class="play-btn">▶</div>
+            </div>
+            <div class="track">
+                <span>EVIL JORDAN</span>
+                <span class="duration"></span>
+                <div class="play-btn">▶</div>
+            </div>
+            <div class="track">
+                <span>TOXIC (with Skepta)</span>
+                <span class="duration"></span>
+                <div class="play-btn">▶</div>
+            </div>
+            <div class="track">
+                <span>MOJOJOJO</span>
+                <span class="duration"></span>
+                <div class="play-btn">▶</div>
+            </div>
+        </div>
+
+     
+        <audio id="audioPlayer"></audio>
+
+
+        <div class="player-controls">
+            <div class="control-btn" id="prev">⏮</div>
+            <div class="control-btn" id="playPause">▶</div>
+            <div class="control-btn" id="next">⏭</div>
+            <input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPause');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const volumeSlider = document.getElementById('volume');
+
+        const tracks = [
+            {src: 'ratherlie.mp3', title: 'RATHER LIE', duration: '3:29'},
+            {src: 'eviljordan.mp3', title: 'EVIL JORDAN', duration: '3:03'},
+            {src: 'toxic.mp3', title: 'TOXIC', duration: '2:15'},
+            {src: 'mojojojo.mp3', title: 'MOJOJOJO', duration: '2:36'}
+        ];
+
+        const trackElements = document.querySelectorAll('.track');
+        let currentTrack = 0;
+
+        trackElements.forEach((track, index) => {
+            track.querySelector('.duration').textContent = tracks[index].duration;
+            track.querySelector('.play-btn').addEventListener('click', () => {
+                currentTrack = index;
+                loadTrack(currentTrack);
+            });
+        });
+
+        function loadTrack(index) {
+            audio.src = tracks[index].src;
+            audio.play();
+            playPauseBtn.textContent = '⏸';
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶';
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            loadTrack(currentTrack);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+            loadTrack(currentTrack);
+        });
+
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value;
+        });
+
+        audio.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶';
+        });
+    </script>
+</body>
+</html>

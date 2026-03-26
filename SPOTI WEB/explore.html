@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EXPLORE PAGE</title>
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: 100vh;
+}
+
+.sidebar {
+    background: #000;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 15px 0;
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+    color: white;
+}
+
+.content {
+    padding: 30px;
+    overflow-y: auto;
+}
+
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+
+.genres {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.genre {
+    background: #2a2a2a;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.genre::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #06dd51, #1db954);
+}
+
+
+.videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.video {
+    position: relative;
+}
+
+.video img {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.video::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    opacity: 0.9;
+}
+
+.video-title {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.video-sub {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+
+    <aside class="sidebar">
+        <h2>AOLID MUSIC</h2>
+        <a>🏠 Home</a>
+        <a href="index.html">📚 Your Library </a>
+        <a class="active">🧭 Explore</a>
+    </aside>
+
+    <main class="content">
+
+        <div class="section">
+            <h2>Moods & genres</h2>
+            <div class="genres">
+                <div class="genre">K-Pop</div>
+                <div class="genre">UK Rap</div>
+                <div class="genre">Mandopop</div>
+                <div class="genre">Soundtracks</div>
+                <div class="genre">Sleep</div>
+                <div class="genre">Arabic</div>
+                <div class="genre">1980s</div>
+                <div class="genre">Jazz</div>
+                <div class="genre">Party</div>
+                <div class="genre">Gaming</div>
+                <div class="genre">Pop</div>
+                <div class="genre">Classical</div>
+            </div>
+        </div>
+
+
+        <div class="section">
+            <h2>New music videos</h2>
+            <div class="videos">
+                <div class="video">
+                    <img src="dave.jpg">
+                    <div class="video-title">The Boy Who Played the Harp</div>
+                    <div class="video-sub">Dave • 1M views</div>
+                </div>
+
+                <div class="video">
+                    <img src="tunay.jpg">
+                    <div class="video-title">Tunay</div>
+                    <div class="video-sub">Zack Tabudlo • 455K views</div>
+                </div>
+
+                <div class="video">
+                    <img src="trimski.jpg">
+                    <div class="video-title">Trimski</div>
+                    <div class="video-sub">Young Thug & NAV • 446K views</div>
+                </div>
+
+                <div class="video">
+                    <img src="letem.jpg">
+                    <div class="video-title">LET ’EM KNOW</div>
+                    <div class="video-sub">T.I. • 1.9M views</div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+</body>
+</html>

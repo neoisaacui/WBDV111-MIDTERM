@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neo Isaac Music</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Circular, Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.login-card {
+  background: #121212;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.brand h1 span {
+  color: #1DB954;
+}
+
+.brand p {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #b3b3b3;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #1DB954;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1DB954;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #1ed760;
+}
+
+.footer-links {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: #b3b3b3;
+}
+
+.divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin: 20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+  <div class="brand">
+    <div class="logo-icon">🎵</div>
+    <h1>Spoti<span>Web</span></h1>
+    <p>Log in to continue listening</p>
+  </div>
+
+  <form onsubmit="login(event)">
+    <div class="input-group">
+      <label>Email address</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="password" required>
+    </div>
+
+    <button class="login-btn">Log In</button>
+
+    <div class="footer-links">
+      <a href="#">Forgot your password?</a>
+      <div class="divider"></div>
+      <span>Don’t have an account? <a href="signup.html">Sign up</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+function login(e) {
+  e.preventDefault();
+
+
+  localStorage.setItem("loggedIn", "true");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
