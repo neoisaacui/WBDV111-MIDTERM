@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+<h2 class="logo">STOCKMASTER</h2>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="stock.html">Stock</a>
+<a href="suppliers.html">Suppliers</a>
+<a href="orders.html">Orders</a>
+<a href="reports.html">Reports</a>
+<a href="login.html">Login</a>
+</div>
+
+<div class="content">
+
+<h1>Stock Inventory</h1>
+
+<button class="action-btn">Add Stocks</button>
+
+<br><br>
+
+<input 
+type="text" 
+id="searchOrders" 
+placeholder="Search stocks..." 
+onkeyup="searchOrders()" 
+class="search-bar"
+>
+
+<table id="ordersTable">
+
+<tr>
+<th>Product</th>
+<th>Quantity</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>Wireless Mouse</td>
+<td>45</td>
+<td>$15</td>
+<td><button class="action-btn">Edit</button></td>
+</tr>
+
+<tr>
+<td>Mechanical Keyboard</td>
+<td>20</td>
+<td>$60</td>
+<td><button class="action-btn">Edit</button></td>
+</tr>
+
+<tr>
+<td>USB Flash Drive</td>
+<td>150</td>
+<td>$8</td>
+<td><button class="action-btn">Edit</button></td>
+</tr>
+
+<tr>
+<td>HD Webcam</td>
+<td>18</td>
+<td>$35</td>
+<td><button class="action-btn">Edit</button></td>
+</tr>
+
+<tr>
+<td>Laptop Stand</td>
+<td>32</td>
+<td>$22</td>
+<td><button class="action-btn">Edit</button></td>
+</tr>
+
+</table>
+
+</body>
+</html>

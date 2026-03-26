@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Suppliers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2 class="logo">STOCKMASTER</h2>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="stock.html">Stock</a>
+<a href="suppliers.html">Suppliers</a>
+<a href="orders.html">Orders</a>
+<a href="reports.html">Reports</a>
+<a href="login.html">Login</a>
+
+</div>
+
+<div class="content">
+
+<h1>Suppliers Management</h1>
+
+<button class="action-btn">Add Supplier</button>
+
+<br><br>
+
+<input 
+type="text" 
+id="searchOrders" 
+placeholder="Search suppliers..." 
+onkeyup="searchOrders()" 
+class="search-bar"
+>
+
+<h2>Supplier List</h2>
+
+<table>
+
+<table id="ordersTable">
+
+<tr>
+<th>Supplier ID</th>
+<th>Name</th>
+<th>Contact Person</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>SP101</td>
+<td>NovaTech Supplies</td>
+<td>Angela Cruz</td>
+<td>09112223333</td>
+<td>nova@tech.com</td>
+<td class="status-active">Active</td>
+<td>
+<button class="action-btn">Edit</button>
+<button class="action-btn">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>SP102</td>
+<td>Prime Office Hub</td>
+<td>Leo Martinez</td>
+<td>09223334444</td>
+<td>prime@office.com</td>
+<td class="status-active">Active</td>
+<td>
+<button class="action-btn">Edit</button>
+<button class="action-btn">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>SP103</td>
+<td>Digital Core Inc.</td>
+<td>Sofia Ramos</td>
+<td>09334445555</td>
+<td>core@digital.com</td>
+<td class="status-inactive">Inactive</td>
+<td>
+<button class="action-btn">Edit</button>
+<button class="action-btn">Delete</button>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

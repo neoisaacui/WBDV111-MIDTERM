@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2 class="logo">STOCKMASTER</h2>
+
+<a href="dashboard.html">Dashboard</a>
+<a href="stock.html">Stock</a>
+<a href="suppliers.html">Suppliers</a>
+<a href="orders.html">Orders</a>
+<a href="reports.html">Reports</a>
+<a href="login.html">Login</a>
+
+</div>
+
+<div class="content">
+
+<h1>Order Management</h1>
+
+<button class="action-btn">Create New Order</button>
+
+<br><br>
+
+<input 
+type="text" 
+id="searchOrders" 
+placeholder="Search orders..." 
+onkeyup="searchOrders()" 
+class="search-bar"
+>
+
+
+<h2>Order List</h2>
+
+<table>
+
+<table id="ordersTable">
+
+<tr>
+<th>Order ID</th>
+<th>Customer</th>
+<th>Product</th>
+<th>Quantity</th>
+<th>Total Price</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>TX-9001</td>
+<td>Mark Villanueva</td>
+<td>Wireless Mouse</td>
+<td>3</td>
+<td>$45</td>
+<td class="status-completed">Completed</td>
+<td>
+<button class="action-btn">View</button>
+<button class="action-btn">Cancel</button>
+</td>
+</tr>
+
+<tr>
+<td>TX-9002</td>
+<td>Anne Lopez</td>
+<td>Mechanical Keyboard</td>
+<td>1</td>
+<td>$60</td>
+<td class="status-processing">Processing</td>
+<td>
+<button class="action-btn">View</button>
+<button class="action-btn">Cancel</button>
+</td>
+</tr>
+
+<tr>
+<td>TX-9003</td>
+<td>Kevin Tan</td>
+<td>HD Webcam</td>
+<td>2</td>
+<td>$70</td>
+<td class="status-pending">Pending</td>
+<td>
+<button class="action-btn">View</button>
+<button class="action-btn">Cancel</button>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
