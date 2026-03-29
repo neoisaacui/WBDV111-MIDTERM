@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcript — ScholarPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">Scholar<span>Portal</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="transcript.html" class="active" id="nav-transcript">Transcript</a>
+    <a href="profile.html" id="nav-profile">Profile</a>
+    <a href="index.html" id="nav-login" class="nav-cta">Login</a>
+    <a href="#" id="nav-logout" class="nav-cta" onclick="handleLogout(); return false;">Logout</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<section id="transcript" style="padding-top:7rem;">
+  <div class="container animate-bars">
+    <p class="section-eyebrow">Academic Record</p>
+    <h2 class="section-title">Your transcript.</h2>
+    <p class="section-sub">Live grades and credit tracking. Updated automatically when results are released by faculty.</p>
+    <div class="transcript-wrap">
+      <div class="transcript-table-wrap">
+        <div class="transcript-table-header">
+          <h3>AY 2024–2025 · Semester 2</h3>
+          <button class="btn btn-ghost" style="font-size:0.78rem;padding:0.35rem 0.85rem;" onclick="showToast('📄 Transcript downloaded as PDF!')">Download PDF</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Credits</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--gold)">CS 301</span></td>
+              <td>Data Structures & Algorithms</td>
+              <td>3</td>
+              <td><span class="grade-pill grade-a">A</span></td>
+              <td><span style="font-size:0.78rem;color:#16a34a">✓ Complete</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--gold)">MATH 201</span></td>
+              <td>Linear Algebra</td>
+              <td>3</td>
+              <td><span class="grade-pill grade-b">B+</span></td>
+              <td><span style="font-size:0.78rem;color:#16a34a">✓ Complete</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--gold)">ENG 110</span></td>
+              <td>Technical Writing</td>
+              <td>2</td>
+              <td><span class="grade-pill grade-a">A−</span></td>
+              <td><span style="font-size:0.78rem;color:#16a34a">✓ Complete</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--gold)">CS 480</span></td>
+              <td>Machine Learning</td>
+              <td>4</td>
+              <td><span class="grade-pill grade-ip">IP</span></td>
+              <td><span style="font-size:0.78rem;color:var(--gold)">⏳ In Progress</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-mono);font-size:0.78rem;color:var(--gold)">BIO 410</span></td>
+              <td>Molecular Biology</td>
+              <td>4</td>
+              <td><span class="grade-pill grade-ip">IP</span></td>
+              <td><span style="font-size:0.78rem;color:var(--gold)">⏳ In Progress</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="gpa-card">
+        <h3>Cumulative GPA</h3>
+        <div class="gpa-number">3.72</div>
+        <div class="gpa-scale">out of 4.00</div>
+        <div class="gpa-bar-wrap">
+          <div class="gpa-bar-label"><span>GPA Progress</span><span>3.72 / 4.00</span></div>
+          <div class="gpa-bar"><div class="gpa-bar-fill" style="width:93%"></div></div>
+        </div>
+        <div class="gpa-stats">
+          <div class="gpa-stat-row"><span>Total Credits</span><span>64 earned</span></div>
+          <div class="gpa-stat-row"><span>Credits Needed</span><span>56 remaining</span></div>
+          <div class="gpa-stat-row"><span>Year Standing</span><span>3rd Year</span></div>
+          <div class="gpa-stat-row"><span>Academic Status</span><span style="color:#16a34a">Good Standing</span></div>
+          <div class="gpa-stat-row"><span>Dean's List</span><span style="color:var(--gold)">✓ Yes</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="index.html">ScholarPortal</a>
+    <div class="footer-links">
+      <a href="index.html#courses">Courses</a>
+      <a href="transcript.html">Transcript</a>
+      <a href="index.html#register">Register</a>
+      <a href="profile.html">Profile</a>
+    </div>
+    <div class="footer-copy">© 2025 ScholarPortal · Edu-Tech Platform</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+<script>
+  guardPage();
+</script>
+</body>
+</html>

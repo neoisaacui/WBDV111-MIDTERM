@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — ScholarPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">Scholar<span>Portal</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="transcript.html" id="nav-transcript">Transcript</a>
+    <a href="profile.html" class="active" id="nav-profile">Profile</a>
+    <a href="index.html" id="nav-login" class="nav-cta">Login</a>
+    <a href="index.html" id="nav-logout" class="nav-cta" onclick="handleLogout(); return false;">Logout</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<section id="profile" style="padding-top:7rem;">
+  <div class="container animate-bars">
+    <p class="section-eyebrow">Student Dashboard</p>
+    <h2 class="section-title">Your profile.</h2>
+    <p class="section-sub">A snapshot of your academic identity — progress, schedule, and program standing in one view.</p>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-avatar">Mr</div>
+        <div class="profile-name">Neo Isaac Gueno</div>
+        <div class="profile-id">SP-2024-00142</div>
+        <div class="profile-tag">🎓 1st Year · CS</div>
+        <div class="profile-divider"></div>
+        <div class="profile-info-row"><span>Email</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec82c28b99898283ac9f8f84838380c2898899">[email&#160;protected]</a></span></div>
+        <div class="profile-info-row"><span>Program</span><span>B.S. Computer Science</span></div>
+        <div class="profile-info-row"><span>Campus</span><span>Main Campus</span></div>
+        <div class="profile-info-row"><span>Adviser</span><span>Prof. R. Navarro</span></div>
+        <div class="profile-info-row"><span>Status</span><span style="color:#16a34a">Active ✓</span></div>
+        <div class="profile-divider"></div>
+        <button class="btn btn-ghost" style="width:100%;justify-content:center;font-size:0.82rem;margin-top:0.25rem;" onclick="showToast('✏️ Profile edit mode enabled!')">Edit Profile</button>
+      </div>
+      <div class="profile-details">
+        <div class="profile-section-card">
+          <h4>📈 Degree Progress</h4>
+          <div class="progress-item">
+            <div class="progress-label"><span>Core Requirements</span><span>82%</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-gold" style="width:82%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Major Electives</span><span>60%</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-blue" style="width:60%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>General Education</span><span>95%</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-green" style="width:95%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Overall Completion</span><span>53%</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-gold" style="width:53%"></div></div>
+          </div>
+        </div>
+        <div class="profile-section-card">
+          <h4>🗓️ This Week's Schedule</h4>
+          <div class="schedule-item">
+            <div class="schedule-dot dot-gold"></div>
+            <div class="schedule-text">
+              <strong>CS 301 — Data Structures & Algorithms</strong>
+              <span>Mon / Wed / Fri · 9:00 – 10:00 AM · Room 204</span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-dot dot-blue"></div>
+            <div class="schedule-text">
+              <strong>MATH 201 — Linear Algebra</strong>
+              <span>Tue / Thu · 1:00 – 2:30 PM · Room 118</span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-dot dot-green"></div>
+            <div class="schedule-text">
+              <strong>CS 480 — Machine Learning</strong>
+              <span>Mon / Wed / Fri · 11:00 AM – 12:00 PM · Lab 3</span>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-dot dot-gold"></div>
+            <div class="schedule-text">
+              <strong>BIO 410 — Molecular Biology</strong>
+              <span>Mon / Wed / Fri · 2:00 – 3:00 PM · Sci Hall B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATEMENT OF ACCOUNT -->
+    <div style="margin-top:2.5rem;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <p class="section-eyebrow" style="margin-bottom:0.25rem;">Billing & Fees</p>
+          <h3 style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--navy);">Statement of Account</h3>
+        </div>
+        <button class="btn btn-ghost" style="font-size:0.78rem;padding:0.35rem 0.85rem;" onclick="showToast('📄 Statement downloaded as PDF!')">Download PDF</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start;">
+
+        <!-- Charges Table -->
+        <div class="profile-section-card" style="padding:0;overflow:hidden;">
+          <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+            <h4 style="margin:0;font-size:0.85rem;font-weight:700;color:var(--navy);">📋 AY 2024–2025 · Semester 2 Charges</h4>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);background:rgba(184,134,46,0.1);padding:0.2rem 0.6rem;border-radius:20px;border:1px solid rgba(184,134,46,0.25);">Current Term</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;">
+            <thead>
+              <tr style="background:var(--bg2);">
+                <th style="text-align:left;padding:0.7rem 1.5rem;font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Description</th>
+                <th style="text-align:center;padding:0.7rem 1rem;font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Date</th>
+                <th style="text-align:right;padding:0.7rem 1.5rem;font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Amount</th>
+                <th style="text-align:center;padding:0.7rem 1rem;font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Tuition Fee</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">14 units × ₱1,200/unit</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 06</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--navy);font-family:var(--font-mono);">₱16,800.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.25);">Paid</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Miscellaneous Fee</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">Library, lab access, student org</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 06</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--navy);font-family:var(--font-mono);">₱2,400.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.25);">Paid</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Computer Lab Fee</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">CS 301 & CS 480 lab usage</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 06</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--navy);font-family:var(--font-mono);">₱800.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.25);">Paid</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Athletics & Student Activities</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">Semester sports & events fund</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 06</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--navy);font-family:var(--font-mono);">₱500.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.25);">Paid</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">ID & Enrollment Processing</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">Student ID renewal, COR printing</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 08</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:var(--navy);font-family:var(--font-mono);">₱250.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.25);">Paid</span></td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);background:rgba(234,179,8,0.03);">
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Balance from Previous Term</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">Carry-over from Sem 1 adjustment</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Jan 15</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:#dc2626;font-family:var(--font-mono);">₱1,200.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(220,38,38,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.2);">Unpaid</span></td>
+              </tr>
+              <tr>
+                <td style="padding:0.85rem 1.5rem;">
+                  <div style="font-size:0.85rem;font-weight:600;color:var(--navy);">Graduation Fee (Pre-Assessment)</div>
+                  <div style="font-size:0.72rem;color:var(--muted);">Reserved for AY 2026 graduation</div>
+                </td>
+                <td style="text-align:center;padding:0.85rem 1rem;font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);">Feb 01</td>
+                <td style="text-align:right;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:700;color:#f59e0b;font-family:var(--font-mono);">₱3,500.00</td>
+                <td style="text-align:center;padding:0.85rem 1rem;"><span style="font-size:0.7rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:20px;background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Summary Card -->
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div class="profile-section-card">
+            <h4 style="margin-bottom:1.25rem;">💳 Account Summary</h4>
+            <div style="display:flex;flex-direction:column;gap:0.7rem;">
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;">
+                <span style="color:var(--muted);">Total Assessed</span>
+                <span style="font-weight:700;font-family:var(--font-mono);">₱25,450.00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;font-size:0.82rem;">
+                <span style="color:var(--muted);">Total Paid</span>
+                <span style="font-weight:700;color:#16a34a;font-family:var(--font-mono);">₱20,750.00</span>
+              </div>
+              <div style="height:1px;background:var(--border);margin:0.35rem 0;"></div>
+              <div style="display:flex;justify-content:space-between;font-size:0.95rem;">
+                <span style="font-weight:700;color:var(--navy);">Balance Due</span>
+                <span style="font-weight:700;color:#dc2626;font-family:var(--font-mono);">₱4,700.00</span>
+              </div>
+            </div>
+            <div style="margin-top:1.25rem;background:rgba(220,38,38,0.05);border:1px solid rgba(220,38,38,0.15);border-radius:8px;padding:0.75rem 1rem;">
+              <div style="font-size:0.72rem;font-weight:600;color:#dc2626;margin-bottom:0.2rem;">⚠ Payment Deadline</div>
+              <div style="font-size:0.78rem;color:var(--muted);">April 15, 2025 — Pay balance to avoid hold on grades.</div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1rem;font-size:0.85rem;" onclick="showToast('🏦 Redirecting to payment gateway...')">Pay Now →</button>
+          </div>
+
+          <div class="profile-section-card">
+            <h4 style="margin-bottom:1rem;">📅 Payment History</h4>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:0.8rem;font-weight:600;color:var(--navy);">Jan 06, 2025</div>
+                  <div style="font-size:0.7rem;color:var(--muted);">Online Payment · GCash</div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.82rem;font-weight:700;color:#16a34a;">₱20,750.00</span>
+              </div>
+              <div style="height:1px;background:var(--border);"></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:0.8rem;font-weight:600;color:var(--navy);">Aug 10, 2024</div>
+                  <div style="font-size:0.7rem;color:var(--muted);">Cashier · Sem 1 Full Payment</div>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.82rem;font-weight:700;color:#16a34a;">₱21,000.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- END STATEMENT OF ACCOUNT -->
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="index.html">ScholarPortal</a>
+    <div class="footer-links">
+      <a href="index.html#courses">Courses</a>
+      <a href="transcript.html">Transcript</a>
+      <a href="index.html#register">Register</a>
+      <a href="profile.html">Profile</a>
+    </div>
+    <div class="footer-copy">© 2025 ScholarPortal · Edu-Tech Platform</div>
+  </div>
+</footer>
+

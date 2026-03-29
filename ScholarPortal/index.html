@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScholarPortal — Edu-Tech Student Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">Scholar<span>Portal</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="#features">Features</a>
+    <a href="#courses">Courses</a>
+    <a href="transcript.html" id="nav-transcript">Transcript</a>
+    <a href="#register">Register</a>
+    <a href="profile.html" id="nav-profile">Profile</a>
+    <a href="index.html" id="nav-login" class="nav-cta">Login</a>
+    <a href="#" id="nav-logout" class="nav-cta" onclick="handleLogout(); return false;">Logout</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()">☰</button>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow fade-up">Edu-Tech Platform · Student Portal</p>
+      <h1 class="fade-up delay-1">Your academic life, <em>unified.</em></h1>
+      <p class="hero-sub fade-up delay-2">ScholarPortal is a smart student hub — enroll in courses, view your transcript, and manage your academic profile all in one place. Identity-first. Student-centered.</p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="#register" class="btn btn-primary">🎓 Get Started</a>
+        <a href="#courses" class="btn btn-ghost">Browse Courses</a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div class="hero-stat"><strong>120+</strong><span>Courses offered</span></div>
+        <div class="hero-stat"><strong>4,800</strong><span>Active students</span></div>
+        <div class="hero-stat"><strong>98%</strong><span>Satisfaction rate</span></div>
+      </div>
+    </div>
+
+    <div class="login-card fade-up delay-2">
+      <div class="login-card-header">
+        <div class="login-card-icon">🔑</div>
+        <div>
+          <div class="login-card-title">Student Login</div>
+          <div class="login-card-sub">Sign in with your email and password</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="n.gueno@school.edu" id="login-email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" placeholder="neopogi123" id="login-password">
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleLogin()">Enter Portal →</button>
+      <p class="form-note" style="margin-top:0.9rem;">New student? <a href="#register">Create your account</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <p class="section-eyebrow">Why ScholarPortal</p>
+    <h2 class="section-title">Everything a scholar needs.</h2>
+    <p class="section-sub">Built for students, not bureaucracy. A clean, fast portal that puts your academic life at your fingertips.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🪪</div>
+        <h3>Easy Login</h3>
+        <p>Access the portal easily — no complex credentials required. Just enter your name or jump straight in.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Course Enrollment</h3>
+        <p>Browse, filter, and enroll in courses across all departments with real-time seat availability and credit tracking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Live Transcript</h3>
+        <p>View your official transcript anytime — grades, credits, and GPA updated in real time as results are posted.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <h3>Student Profile</h3>
+        <p>Manage your academic profile, program progress, schedule, and personal details from one central dashboard.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <h3>Smart Scheduling</h3>
+        <p>Your enrolled courses auto-populate your weekly schedule. Get reminders and avoid conflicts before they happen.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Private</h3>
+        <p>All student data is encrypted and protected. Only you and authorized faculty can access your academic records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="container">
+    <div class="courses-header">
+      <div>
+        <p class="section-eyebrow">Course Catalog</p>
+        <h2 class="section-title">Explore courses.</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterCourses('all', this)">All</button>
+        <button class="filter-tab" onclick="filterCourses('cs', this)">CS</button>
+        <button class="filter-tab" onclick="filterCourses('math', this)">Math</button>
+        <button class="filter-tab" onclick="filterCourses('science', this)">Science</button>
+        <button class="filter-tab" onclick="filterCourses('arts', this)">Arts</button>
+      </div>
+    </div>
+    <div class="courses-grid" id="courses-grid">
+      <div class="course-card" data-cat="cs">
+        <div class="course-thumb course-thumb-cs">💻<span class="course-badge badge-open">Open</span></div>
+        <div class="course-info">
+          <div class="course-code">CS 301</div>
+          <h3>Data Structures & Algorithms</h3>
+          <p>Arrays, trees, graphs, sorting algorithms, and complexity analysis.</p>
+          <div class="course-meta"><span>Prof. R. Navarro</span><span class="course-credits">3 credits</span></div>
+        </div>
+      </div>
+      <div class="course-card" data-cat="math">
+        <div class="course-thumb course-thumb-math">📐<span class="course-badge badge-open">Open</span></div>
+        <div class="course-info">
+          <div class="course-code">MATH 201</div>
+          <h3>Linear Algebra</h3>
+          <p>Vectors, matrices, determinants, eigenvalues, and linear transformations.</p>
+          <div class="course-meta"><span>Prof. A. Cruz</span><span class="course-credits">3 credits</span></div>
+        </div>
+      </div>
+      <div class="course-card" data-cat="cs">
+        <div class="course-thumb course-thumb-eng">🤖<span class="course-badge badge-full">Full</span></div>
+        <div class="course-info">
+          <div class="course-code">CS 480</div>
+          <h3>Machine Learning</h3>
+          <p>Supervised learning, neural networks, optimization, and model evaluation.</p>
+          <div class="course-meta"><span>Prof. D. Lim</span><span class="course-credits">4 credits</span></div>
+        </div>
+      </div>
+      <div class="course-card" data-cat="science">
+        <div class="course-thumb course-thumb-sci">🧬<span class="course-badge badge-open">Open</span></div>
+        <div class="course-info">
+          <div class="course-code">BIO 410</div>
+          <h3>Molecular Biology</h3>
+          <p>DNA replication, gene expression, protein synthesis, and cell signaling.</p>
+          <div class="course-meta"><span>Prof. K. Torres</span><span class="course-credits">4 credits</span></div>
+        </div>
+      </div>
+      <div class="course-card" data-cat="arts">
+        <div class="course-thumb course-thumb-hist">🏛️<span class="course-badge badge-open">Open</span></div>
+        <div class="course-info">
+          <div class="course-code">HIST 220</div>
+          <h3>World History: 1900–Present</h3>
+          <p>Global conflicts, decolonization, Cold War, and modern geopolitics.</p>
+          <div class="course-meta"><span>Prof. M. Reyes</span><span class="course-credits">3 credits</span></div>
+        </div>
+      </div>
+      <div class="course-card" data-cat="arts">
+        <div class="course-thumb course-thumb-art">🎨<span class="course-badge badge-new">New</span></div>
+        <div class="course-info">
+          <div class="course-code">ART 310</div>
+          <h3>Digital Design & UI Principles</h3>
+          <p>Color theory, typography, layout, and modern interface design practice.</p>
+          <div class="course-meta"><span>Prof. L. Garcia</span><span class="course-credits">3 credits</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="container">
+    <p class="section-eyebrow">Enrollment & Access</p>
+    <h2 class="section-title">Register & enroll.</h2>
+    <p class="section-sub">Create your student account or enroll in open courses for the upcoming term. Seats are limited.</p>
+    <div class="register-grid">
+      <div class="register-panel">
+        <h3>Create Account</h3>
+        <p>Register to get your Student ID and access the portal.</p>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Neo" id="reg-first"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Gueno" id="reg-last"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="n.gueno@school.edu"></div>
+        <div class="form-group">
+          <label class="form-label">Program / Department</label>
+          <select class="form-select">
+            <option>Computer Science</option>
+            <option>Mathematics</option>
+            <option>Biology</option>
+            <option>Engineering</option>
+            <option>Arts & Humanities</option>
+            <option>Business</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Create Password</label><input class="form-input" type="password" placeholder="••••••••"></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;" onclick="handleRegister()">Create Account →</button>
+        <p class="form-note" style="margin-top:0.75rem;">Already have an account? <a href="#home">Sign in above</a></p>
+      </div>
+      <div class="register-panel">
+        <h3>Enroll in Courses</h3>
+        <p>Available courses for the upcoming semester. Tap Enroll to add to your schedule.</p>
+        <div class="enroll-list">
+          <div class="enroll-item">
+            <div class="enroll-icon">💻</div>
+            <div class="enroll-text"><strong>CS 301 — Data Structures</strong><span>MWF 9:00–10:00 AM · 3 credits · 12 seats left</span></div>
+            <button class="enroll-btn" onclick="showToast('✅ Enrolled in CS 301!')">Enroll</button>
+          </div>
+          <div class="enroll-item">
+            <div class="enroll-icon">📐</div>
+            <div class="enroll-text"><strong>MATH 201 — Linear Algebra</strong><span>TTh 1:00–2:30 PM · 3 credits · 8 seats left</span></div>
+            <button class="enroll-btn" onclick="showToast('✅ Enrolled in MATH 201!')">Enroll</button>
+          </div>
+          <div class="enroll-item">
+            <div class="enroll-icon">🧬</div>
+            <div class="enroll-text"><strong>BIO 410 — Molecular Biology</strong><span>MWF 2:00–3:00 PM · 4 credits · 5 seats left</span></div>
+            <button class="enroll-btn" onclick="showToast('✅ Enrolled in BIO 410!')">Enroll</button>
+          </div>
+          <div class="enroll-item">
+            <div class="enroll-icon">🎨</div>
+            <div class="enroll-text"><strong>ART 310 — Digital Design</strong><span>TTh 10:00–11:30 AM · 3 credits · 15 seats left</span></div>
+            <button class="enroll-btn" onclick="showToast('✅ Enrolled in ART 310!')">Enroll</button>
+          </div>
+          <div class="enroll-item" style="opacity:0.5;">
+            <div class="enroll-icon">🤖</div>
+            <div class="enroll-text"><strong>CS 480 — Machine Learning</strong><span>MWF 11:00 AM–12:00 PM · 4 credits · 0 seats</span></div>
+            <button class="enroll-btn" style="cursor:not-allowed;">Full</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <p class="section-eyebrow" style="text-align:center;">Get Started Today</p>
+    <h2 class="section-title">Ready to take control of your academics?</h2>
+    <p class="section-sub">Join thousands of students already using ScholarPortal to manage their studies, track progress, and succeed.</p>
+    <div class="hero-actions">
+      <a href="#register" class="btn btn-primary">🎓 Create Account</a>
+      <a href="#courses" class="btn btn-ghost">Browse Courses</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="index.html">ScholarPortal</a>
+    <div class="footer-links">
+    </div>
+    <div class="footer-copy">© 2025 ScholarPortal · Edu-Tech Platform</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
