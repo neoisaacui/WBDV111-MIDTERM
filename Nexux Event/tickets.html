@@ -1,0 +1,306 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Events | Tickets</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="tickets">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">Nexus Events</a>
+      <nav class="nav-links">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="events.html" data-nav="events">Events</a>
+        <a href="tickets.html" data-nav="tickets">Tickets</a>
+        <a href="venue.html" data-nav="venue">Venue</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+        <a href="admin-login.html" data-nav="admin">Admin</a>
+      </nav>
+      <button class="btn btn--ghost" type="button" data-party-toggle>Party Mode: OFF</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Tickets & Access</h1>
+
+    <section class="grid">
+      <article class="card">
+        <span class="badge">Starter</span>
+        <h3>Pulse Pass</h3>
+        <p>General entry, standing zone, and merch lane access.</p>
+        <strong>$45</strong>
+        <a class="btn btn--ghost" href="contact.html">Ask for Group Rates</a>
+      </article>
+      <article class="card">
+        <span class="badge">Most Popular</span>
+        <h3>Glow Pass</h3>
+        <p>Priority entry, lounge access, and 1 drink ticket.</p>
+        <strong>$85</strong>
+        <a class="btn btn--ghost" href="contact.html">Ask for Group Rates</a>
+      </article>
+      <article class="card">
+        <span class="badge">VIP</span>
+        <h3>Orbit Pass</h3>
+        <p>Balcony seating, backstage tour, and event photo pack.</p>
+        <strong>$140</strong>
+        <a class="btn btn--ghost" href="contact.html">Ask for Group Rates</a>
+      </article>
+    </section>
+
+    <section style="margin-top: 2.5rem;">
+      <div class="panel">
+        <h2 class="section-title" style="margin-top:0;">Quick Ticket Builder</h2>
+        <div class="ticket-row" data-ticket-row data-price="45">
+          <div>
+            <strong>Pulse Pass</strong>
+            <p>Entry + merch lane</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" data-qty-minus>-</button>
+            <input type="text" value="0" data-qty>
+            <button type="button" data-qty-plus>+</button>
+          </div>
+          <div>$45 each</div>
+        </div>
+        <div class="ticket-row" data-ticket-row data-price="85">
+          <div>
+            <strong>Glow Pass</strong>
+            <p>Priority entry + lounge</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" data-qty-minus>-</button>
+            <input type="text" value="0" data-qty>
+            <button type="button" data-qty-plus>+</button>
+          </div>
+          <div>$85 each</div>
+        </div>
+        <div class="ticket-row" data-ticket-row data-price="140">
+          <div>
+            <strong>Orbit Pass</strong>
+            <p>Balcony + backstage</p>
+          </div>
+          <div class="qty-control">
+            <button type="button" data-qty-minus>-</button>
+            <input type="text" value="0" data-qty>
+            <button type="button" data-qty-plus>+</button>
+          </div>
+          <div>$140 each</div>
+        </div>
+        <div class="total-box" style="margin-top: 1.2rem;">
+          Total: <span data-total>$0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHECKOUT ─────────────────────────────────── -->
+    <section style="margin-top: 2.5rem;" id="checkout-section">
+      <h2 class="section-title">Checkout</h2>
+      <div class="checkout-grid">
+
+        <!-- LEFT: Attendee + Payment -->
+        <div style="display:grid;gap:1.4rem;">
+
+          <!-- Event Selector -->
+          <div class="panel">
+            <h3 class="checkout-panel-title">🎪 Select Event</h3>
+            <div class="form-grid">
+              <label>
+                Event
+                <select id="checkout-event">
+                  <option value="">— Choose an event —</option>
+                  <option value="Pixel Parade · Apr 12 · Nexus Hall">Pixel Parade — Apr 12</option>
+                  <option value="Metro Market Nights · Apr 18 · Market Lane">Metro Market Nights — Apr 18</option>
+                  <option value="Studio Rooftop Sessions · Apr 22 · Rooftop">Studio Rooftop Sessions — Apr 22</option>
+                  <option value="Neon Circuit Live · Apr 27 · Main Hall">Neon Circuit Live — Apr 27</option>
+                  <option value="Poster Lab Workshop · May 3 · Creator Lounge">Poster Lab Workshop — May 3</option>
+                  <option value="Pop-Up Style Arcade · May 10 · Market Lane">Pop-Up Style Arcade — May 10</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- Attendee Info -->
+          <div class="panel">
+            <h3 class="checkout-panel-title">👤 Attendee Info</h3>
+            <div class="form-grid">
+              <div class="checkout-row-2">
+                <label>
+                  First Name
+                  <input type="text" id="checkout-fname" placeholder="Neo">
+                </label>
+                <label>
+                  Last Name
+                  <input type="text" id="checkout-lname" placeholder="Gueno">
+                </label>
+              </div>
+              <label>
+                Email Address
+                <input type="email" id="checkout-email" placeholder="kahitano@email.com">
+              </label>
+              <label>
+                Phone Number <span style="font-weight:400;font-size:0.85rem;">(optional)</span>
+                <input type="tel" id="checkout-phone" placeholder="+1 (555) 000-0000">
+              </label>
+              <label>
+                Special Requests <span style="font-weight:400;font-size:0.85rem;">(optional)</span>
+                <textarea id="checkout-notes" placeholder="Accessibility needs, dietary restrictions, etc." style="min-height:80px;resize:vertical;"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="panel">
+            <h3 class="checkout-panel-title">🏷️ Promo Code</h3>
+            <div class="promo-row">
+              <input type="text" id="checkout-promo" placeholder="e.g. NEXUS10">
+              <button class="btn btn--ghost" type="button" id="checkout-promo-btn">Apply</button>
+            </div>
+            <p id="checkout-promo-msg" style="margin:0.5rem 0 0;font-weight:700;font-size:0.9rem;display:none;"></p>
+            <p style="margin:0.6rem 0 0;font-size:0.82rem;font-weight:600;color:#555;">Try: <strong>NEXUS10</strong> (10% off) or <strong>VIPCREW</strong> ($20 off)</p>
+          </div>
+
+          <!-- Payment -->
+          <div class="panel">
+            <h3 class="checkout-panel-title">💳 Payment Details</h3>
+            <div class="payment-tabs" id="payment-tabs">
+              <button class="payment-tab active" data-method="card" type="button">💳 Card</button>
+              <button class="payment-tab" data-method="gcash" type="button">📱 GCash</button>
+              <button class="payment-tab" data-method="paypal" type="button">🅿️ PayPal</button>
+            </div>
+
+            <!-- Card Fields -->
+            <div id="pay-card" class="pay-panel">
+              <div class="form-grid" style="margin-top:1rem;">
+                <label>
+                  Cardholder Name
+                  <input type="text" id="checkout-card-name" placeholder="Neo Gueno">
+                </label>
+                <label>
+                  Card Number
+                  <input type="text" id="checkout-card-num" placeholder="•••• •••• •••• ••••" maxlength="19">
+                </label>
+                <div class="checkout-row-2">
+                  <label>
+                    Expiry
+                    <input type="text" id="checkout-card-exp" placeholder="MM / YY" maxlength="7">
+                  </label>
+                  <label>
+                    CVV
+                    <input type="text" id="checkout-card-cvv" placeholder="•••" maxlength="4">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- GCash Fields -->
+            <div id="pay-gcash" class="pay-panel" style="display:none;">
+              <div class="form-grid" style="margin-top:1rem;">
+                <label>
+                  GCash Number
+                  <input type="tel" placeholder="09XX XXX XXXX" maxlength="11">
+                </label>
+                <p style="margin:0;font-size:0.85rem;font-weight:600;background:var(--acid);border:2px solid var(--ink);padding:0.6rem 0.8rem;border-radius:10px;">You will receive a GCash OTP after clicking Pay Now.</p>
+              </div>
+            </div>
+
+            <!-- PayPal Fields -->
+            <div id="pay-paypal" class="pay-panel" style="display:none;">
+              <div class="form-grid" style="margin-top:1rem;">
+                <label>
+                  PayPal Email
+                  <input type="email" placeholder="you@paypal.com">
+                </label>
+                <p style="margin:0;font-size:0.85rem;font-weight:600;background:var(--cyan);border:2px solid var(--ink);padding:0.6rem 0.8rem;border-radius:10px;">You'll be redirected to PayPal to complete payment securely.</p>
+              </div>
+            </div>
+
+            <label class="checkbox" style="margin-top:1rem;">
+              <input type="checkbox" id="checkout-terms">
+              I agree to the Nexus Events <a href="contact.html" class="link">Terms & Conditions</a>
+            </label>
+          </div>
+        </div>
+
+        <!-- RIGHT: Order Summary -->
+        <div>
+          <div class="panel checkout-summary" style="position:sticky;top:90px;">
+            <h3 class="checkout-panel-title">🧾 Order Summary</h3>
+            <div id="summary-lines" style="display:grid;gap:0.5rem;margin-bottom:1rem;">
+              <p id="summary-empty" style="color:#888;font-weight:600;font-size:0.9rem;">No tickets selected yet. Use the Ticket Builder above.</p>
+            </div>
+            <div style="border-top:2px dashed var(--ink);padding-top:0.8rem;display:grid;gap:0.4rem;">
+              <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">$0.00</span></div>
+              <div class="summary-row" id="summary-discount-row" style="display:none;color:green;"><span id="summary-discount-label">Discount</span><span id="summary-discount-val">-$0.00</span></div>
+              <div class="summary-row"><span>Service Fee (5%)</span><span id="summary-fee">$0.00</span></div>
+              <div class="summary-row summary-total"><span>Total</span><span id="summary-grand">$0.00</span></div>
+            </div>
+            <div id="summary-event-box" style="display:none;margin-top:1rem;background:var(--sun);border:2px solid var(--ink);border-radius:12px;padding:0.7rem 0.9rem;">
+              <p style="margin:0;font-size:0.82rem;font-weight:700;">📅 <span id="summary-event-text"></span></p>
+            </div>
+            <button class="btn btn--big" type="button" id="checkout-pay-btn" style="width:100%;margin-top:1.2rem;justify-content:center;" disabled>
+              Pay Now →
+            </button>
+            <p style="margin:0.6rem 0 0;font-size:0.78rem;font-weight:600;text-align:center;color:#666;">🔒 Secured · Demo only — no real charge</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="checkout-modal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(18,18,18,0.65);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
+      <div class="panel" style="max-width:480px;width:calc(100% - 2rem);position:relative;animation:checkoutPop 0.35s cubic-bezier(0.34,1.56,0.64,1) both;">
+        <div style="text-align:center;">
+          <div style="font-size:3.5rem;margin-bottom:0.5rem;">🎉</div>
+          <h2 style="margin:0 0 0.4rem;font-family:'Archivo Black',sans-serif;">You're in!</h2>
+          <p style="margin:0 0 1.2rem;font-size:1rem;font-weight:600;">Your tickets are confirmed. Check your email for the receipt and QR entry pass.</p>
+          <div id="modal-summary" style="background:var(--paper);border:2px solid var(--ink);border-radius:14px;padding:1rem;text-align:left;display:grid;gap:0.4rem;margin-bottom:1.2rem;font-size:0.88rem;font-weight:600;"></div>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;">
+            <button class="btn btn--alt" type="button" id="modal-close">Back to Tickets</button>
+            <a class="btn" href="events.html">Browse More Events</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="margin-top: 2.5rem;">
+      <h2 class="section-title">FAQ</h2>
+      <div class="accordion" data-accordion>
+        <div class="accordion-item open">
+          <button type="button">What is included with a ticket?</button>
+          <div class="content">
+            Every ticket includes entry, venue access, and the Nexus pop-up experience. Glow and Orbit add lounge perks.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button type="button">Can I transfer my ticket?</button>
+          <div class="content">
+            Yes. Tickets can be transferred up to 6 hours before doors open. Contact our support crew.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button type="button">Do you offer group discounts?</button>
+          <div class="content">
+            Groups of 8 or more get custom bundles. Hit us up on the contact page for a quick quote.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="pill">Nexus Events · Tickets Desk</p>
+      <p>© <span data-year></span> Nexus Events Oyin. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
+
+
+
+
