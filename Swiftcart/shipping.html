@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Info — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+    .content { max-width: 960px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; }
+
+    .shipping-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 60px; }
+    .ship-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--card-radius); padding: 28px 24px;
+      transition: all 0.3s; text-align: center;
+    }
+    .ship-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .ship-card.featured { border-color: var(--accent); background: rgba(240,192,64,0.05); }
+    .ship-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+    .ship-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .ship-price { font-family: 'DM Mono', monospace; font-size: 18px; color: var(--accent); margin-bottom: 10px; }
+    .ship-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .ship-badge { display: inline-block; background: var(--accent); color: #000; font-size: 9px; font-family: 'DM Mono', monospace; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 24px; }
+    .section-title span { color: var(--accent); }
+
+    .delivery-table { width: 100%; border-collapse: collapse; margin-bottom: 60px; }
+    .delivery-table th { background: var(--surface); border: 1px solid var(--border); padding: 14px 18px; text-align: left; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .delivery-table td { border: 1px solid var(--border); padding: 14px 18px; font-size: 14px; color: var(--text); }
+    .delivery-table tr:nth-child(even) td { background: var(--surface); }
+    .delivery-table tr:hover td { background: rgba(240,192,64,0.04); }
+    .td-accent { color: var(--accent); font-family: 'DM Mono', monospace; font-weight: 500; }
+
+    .info-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 60px; }
+    .info-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 28px; }
+    .ib-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .ib-list { list-style: none; }
+    .ib-list li { font-size: 14px; color: var(--muted); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .ib-list li:last-child { border-bottom: none; }
+    .ib-list li::before { content: '›'; color: var(--accent); font-size: 16px; flex-shrink: 0; margin-top: -1px; }
+
+    @media (max-width: 900px) {
+      .shipping-cards { grid-template-columns: 1fr; }
+      .info-blocks { grid-template-columns: 1fr; }
+      .content { padding: 40px 20px; }
+      .delivery-table { font-size: 12px; }
+      .delivery-table th, .delivery-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link active" href="shipping.html">Shipping</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions"><a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a></div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Delivery</div>
+    <h1>SHIPPING <span>INFO</span></h1>
+    <p>Everything you need to know about how we get your order from our warehouse to your door, fast and safe.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="shipping-cards">
+      <div class="ship-card">
+        <span class="ship-icon"></span>
+        <div class="ship-name">Standard Delivery</div>
+        <div class="ship-price">FREE over ₱999</div>
+        <div class="ship-desc">3–6 business days depending on your region. Tracked via SMS and email.</div>
+      </div>
+      <div class="ship-card featured">
+        <div class="ship-badge">Most Popular</div>
+        <span class="ship-icon"></span>
+        <div class="ship-name">Express Delivery</div>
+        <div class="ship-price">₱149</div>
+        <div class="ship-desc">1–2 business days within Metro Manila. Same-day available for orders before 12PM.</div>
+      </div>
+      <div class="ship-card">
+        <span class="ship-icon"></span>
+        <div class="ship-name">International</div>
+        <div class="ship-price">From ₱499</div>
+        <div class="ship-desc">7–14 business days to 40+ countries via DHL Express or FedEx. Fully tracked.</div>
+      </div>
+    </div>
+
+    <div class="section-title">DOMESTIC DELIVERY <span>TIMES</span></div>
+    <table class="delivery-table">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Standard</th>
+          <th>Express</th>
+          <th>Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Metro Manila (NCR)</td><td class="td-accent">1–2 days</td><td class="td-accent">Same day</td><td>Free over ₱999 / ₱149</td></tr>
+        <tr><td>Luzon (Nearby Provinces)</td><td class="td-accent">2–3 days</td><td class="td-accent">1–2 days</td><td>Free over ₱999 / ₱149</td></tr>
+        <tr><td>Luzon (Far Provinces)</td><td class="td-accent">3–5 days</td><td class="td-accent">2–3 days</td><td>₱99 / ₱199</td></tr>
+        <tr><td>Visayas</td><td class="td-accent">4–6 days</td><td class="td-accent">2–4 days</td><td>₱149 / ₱249</td></tr>
+        <tr><td>Mindanao</td><td class="td-accent">5–7 days</td><td class="td-accent">3–5 days</td><td>₱149 / ₱249</td></tr>
+        <tr><td>BARMM & ARMM Areas</td><td class="td-accent">6–9 days</td><td class="td-accent">Not available</td><td>₱199</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-blocks">
+      <div class="info-block">
+        <div class="ib-title"> Packaging</div>
+        <ul class="ib-list">
+          <li>All orders are packed in recycled cardboard or eco-poly mailers</li>
+          <li>Fragile items include extra bubble wrap and "FRAGILE" stickers</li>
+          <li>No plastic fillers — we use shredded paper or cornstarch peanuts</li>
+          <li>Gift wrapping available at checkout for ₱49</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <div class="ib-title"> Tracking</div>
+        <ul class="ib-list">
+          <li>Tracking number sent via email and SMS once shipped</li>
+          <li>Real-time updates every time your package moves</li>
+          <li>Visit our <a href="track.html" style="color:var(--accent)">Track Order</a> page anytime</li>
+          <li>Delivery photo provided by courier upon drop-off</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <div class="ib-title">⚠️ Important Notes</div>
+        <ul class="ib-list">
+          <li>Delivery times are business days (Mon–Sat, excluding holidays)</li>
+          <li>Orders placed after 3PM are processed the next business day</li>
+          <li>Ensure someone is available to receive; 3 attempts are made</li>
+          <li>After 3 failed attempts, package is returned to our warehouse</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <div class="ib-title"> International</div>
+        <ul class="ib-list">
+          <li>Customs duties and import taxes are the buyer's responsibility</li>
+          <li>We declare accurate values — no false "gift" declarations</li>
+          <li>Some items (batteries, liquids) cannot be shipped internationally</li>
+          <li>Full country list available at checkout</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div><p>Your one-stop destination for electronics, fashion, home & more.</p><div class="footer-socials"><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a><a class="social-btn" href="#">▶</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="track.html">Track Order</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div><div class="footer-badges"><div class="footer-badge">SSL SECURE</div><div class="footer-badge">PCI DSS</div></div></div>
+  </footer>
+</body>
+</html>

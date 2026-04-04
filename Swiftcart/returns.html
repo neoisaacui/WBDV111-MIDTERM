@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returns & Refunds — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+    .content { max-width: 960px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 60px; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 24px 20px; text-align: center; position: relative; }
+    .step-num { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #000; width: 26px; height: 26px; border-radius: 50%; font-family: 'Bebas Neue', sans-serif; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+    .step-icon { font-size: 32px; margin-bottom: 12px; margin-top: 8px; display: block; }
+    .step-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; margin-bottom: 8px; }
+    .step-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 24px; }
+    .section-title span { color: var(--accent); }
+
+    .policy-table { width: 100%; border-collapse: collapse; margin-bottom: 50px; }
+    .policy-table th { background: var(--surface); border: 1px solid var(--border); padding: 14px 18px; text-align: left; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .policy-table td { border: 1px solid var(--border); padding: 14px 18px; font-size: 14px; color: var(--text); }
+    .policy-table tr:nth-child(even) td { background: var(--surface); }
+    .eligible { color: var(--success); font-weight: 600; }
+    .not-eligible { color: var(--accent2); font-weight: 600; }
+
+    .policy-note { background: rgba(200,152,10,0.06); border: 1px solid rgba(200,152,10,0.2); border-radius: var(--card-radius); padding: 20px 24px; margin-bottom: 50px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .policy-note strong { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .content { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="shipping.html">Shipping</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions"><a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a></div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Returns & Refunds</div>
+    <h1>30-DAY <span>HASSLE-FREE</span><br>RETURNS</h1>
+    <p>Not happy with your order? Return it within 30 days for a full refund. No complicated forms, no runaround.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section-title">HOW TO <span>RETURN</span></div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><span class="step-icon">📱</span><div class="step-title">Request Online</div><div class="step-text">Go to My Orders, select item, and click "Return". Takes 2 minutes.</div></div>
+      <div class="step-card"><div class="step-num">2</div><span class="step-icon">🖨️</span><div class="step-title">Print Label</div><div class="step-text">We email you a prepaid return label. Print and attach to box.</div></div>
+      <div class="step-card"><div class="step-num">3</div><span class="step-icon">📦</span><div class="step-title">Drop Off</div><div class="step-text">Drop at any LBC or J&T Express branch near you.</div></div>
+      <div class="step-card"><div class="step-num">4</div><span class="step-icon">💸</span><div class="step-title">Get Refund</div><div class="step-text">Refund processed within 3–5 days of us receiving the item.</div></div>
+    </div>
+
+    <div class="section-title">RETURN <span>ELIGIBILITY</span></div>
+    <table class="policy-table">
+      <thead><tr><th>Category</th><th>Return Window</th><th>Condition</th><th>Eligible?</th></tr></thead>
+      <tbody>
+        <tr><td>Electronics</td><td>15 days</td><td>Sealed / unused or defective</td><td class="eligible">✓ Yes</td></tr>
+        <tr><td>Fashion & Clothing</td><td>30 days</td><td>Unworn, tags attached</td><td class="eligible">✓ Yes</td></tr>
+        <tr><td>Home & Living</td><td>30 days</td><td>Original packaging, unused</td><td class="eligible">✓ Yes</td></tr>
+        <tr><td>Sports & Fitness</td><td>30 days</td><td>Unused, original condition</td><td class="eligible">✓ Yes</td></tr>
+        <tr><td>Beauty & Skincare</td><td>15 days</td><td>Sealed/unopened only</td><td class="eligible">✓ Yes</td></tr>
+        <tr><td>Food & Beverages</td><td>—</td><td>Perishable items</td><td class="not-eligible">✗ No</td></tr>
+        <tr><td>Digital Products</td><td>—</td><td>Downloaded/activated</td><td class="not-eligible">✗ No</td></tr>
+        <tr><td>Final Sale Items</td><td>—</td><td>Marked at purchase</td><td class="not-eligible">✗ No</td></tr>
+        <tr><td>Damaged / Wrong Item</td><td>48 hours</td><td>Photo required</td><td class="eligible">✓ Full refund or replacement</td></tr>
+      </tbody>
+    </table>
+
+    <div class="policy-note">
+      <strong>💡 Tip:</strong> For damaged or incorrect items, you don't need to return the product. Just send us a photo within 48 hours of receiving your order and we'll process your refund or send a replacement immediately — no shipping required on your end.
+    </div>
+
+    <div class="section-title">REFUND <span>METHODS</span></div>
+    <table class="policy-table">
+      <thead><tr><th>Original Payment</th><th>Refund Method</th><th>Timeframe</th></tr></thead>
+      <tbody>
+        <tr><td>Credit / Debit Card</td><td>Back to card</td><td>3–7 business days</td></tr>
+        <tr><td>GCash / Maya</td><td>Back to wallet</td><td>1–3 business days</td></tr>
+        <tr><td>Bank Transfer</td><td>Back to bank account</td><td>3–5 business days</td></tr>
+        <tr><td>Cash on Delivery</td><td>SwiftCart Wallet or bank transfer</td><td>2–4 business days</td></tr>
+        <tr><td>SwiftCart Wallet</td><td>Back to wallet (instant)</td><td>Same day</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div><p>Your one-stop destination for electronics, fashion, home & more.</p><div class="footer-socials"><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="track.html">Track Order</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div><div class="footer-badges"><div class="footer-badge">SSL SECURE</div></div></div>
+  </footer>
+</body>
+</html>

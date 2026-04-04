@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; align-items: start; }
+
+    .contact-info {}
+    .info-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; margin-bottom: 14px; }
+    .info-title span { color: var(--accent); }
+    .info-text { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 36px; }
+
+    .contact-channels { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .channel-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--card-radius); padding: 20px 22px;
+      display: flex; align-items: center; gap: 16px;
+      transition: all 0.2s; text-decoration: none; color: var(--text);
+    }
+    .channel-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .channel-icon { font-size: 28px; flex-shrink: 0; }
+    .channel-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .channel-val { font-size: 14px; font-weight: 500; }
+    .channel-note { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    .hours-box { background: rgba(240,192,64,0.06); border: 1px solid rgba(240,192,64,0.2); border-radius: var(--card-radius); padding: 20px 22px; }
+    .hours-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: var(--muted); }
+    .hours-row:last-child { margin-bottom: 0; }
+    .hours-time { font-family: 'DM Mono', monospace; font-size: 12px; }
+
+    /* Form */
+    .contact-form-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px; }
+    .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 6px; }
+    .form-subtitle { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-family: 'DM Mono', monospace; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 13px 16px; color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(240,192,64,0.1);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .submit-btn {
+      width: 100%; background: var(--accent); color: #000; border: none;
+      border-radius: 10px; padding: 15px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .submit-btn:hover { background: #f5cc5a; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(240,192,64,0.25); }
+
+    .success-msg { display: none; text-align: center; padding: 30px; }
+    .success-msg .success-icon { font-size: 48px; margin-bottom: 14px; }
+    .success-msg h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 8px; }
+    .success-msg p { color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .content { grid-template-columns: 1fr; padding: 40px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link active" href="contact.html">Contact</a>
+      <a class="nav-link" href="shipping.html">Shipping</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions"><a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a></div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Get In Touch</div>
+    <h1>WE'RE HERE TO <span>HELP</span></h1>
+    <p>Have a question, concern, or just want to say hello? Our team responds to every message within 24 hours.</p>
+  </div>
+
+  <div class="content">
+    <div class="contact-info">
+      <div class="info-title">REACH US <span>ANYTIME</span></div>
+      <p class="info-text">Choose the channel that works best for you. For urgent issues, live chat is the fastest way to reach our team.</p>
+
+      <div class="contact-channels">
+        <a class="channel-card" href="/cdn-cgi/l/email-protection#80f3f5f0f0eff2f4c0f3f7e9e6f4e3e1f2f4aee3efed">
+          <div class="channel-icon"></div>
+          <div><div class="channel-label">Email</div><div class="channel-val"><span class="__cf_email__" data-cfemail="f2818782829d8086b281859b948691938086dc919d9f">SwiftCart@gmail.com</span></div><div class="channel-note">Response within 24 hours</div></div>
+        </a>
+        <a class="channel-card" href="tel:+6328001234">
+          <div class="channel-icon"></div>
+          <div><div class="channel-label">Phone</div><div class="channel-val">+63 2 800-SWIFT (79438)</div><div class="channel-note">Mon–Sat, 8AM–8PM PHT</div></div>
+        </a>
+        <a class="channel-card" href="#">
+          <div class="channel-icon"></div>
+          <div><div class="channel-label">Live Chat</div><div class="channel-val">Chat with us now</div><div class="channel-note">Avg. wait: under 2 minutes</div></div>
+        </a>
+        <a class="channel-card" href="#">
+          <div class="channel-icon"></div>
+          <div><div class="channel-label">Messenger</div><div class="channel-val">SwiftCart PH on Facebook</div><div class="channel-note">Usually replies instantly</div></div>
+        </a>
+      </div>
+
+      <div class="hours-box">
+        <div class="hours-title">Support Hours (PHT)</div>
+        <div class="hours-row"><span>Monday – Friday</span><span class="hours-time">8:00 AM – 10:00 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span class="hours-time">9:00 AM – 8:00 PM</span></div>
+        <div class="hours-row"><span>Sunday & Holidays</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div id="form-view">
+        <div class="form-title">SEND A MESSAGE</div>
+        <div class="form-subtitle">Fill in the form and we'll get back to you within 24 hours.</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Juan"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="dela Cruz"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="juan@example.com"></div>
+        <div class="form-group"><label>Order Number (optional)</label><input type="text" placeholder="SC-2026-XXXXXX"></div>
+        <div class="form-group">
+          <label>Topic</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>Order issue</option>
+            <option>Shipping & delivery</option>
+            <option>Return or refund</option>
+            <option>Product question</option>
+            <option>Account help</option>
+            <option>Payment issue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Describe your issue or question in detail..."></textarea></div>
+        <button class="submit-btn" onclick="submitForm()">SEND MESSAGE &rarr;</button>
+      </div>
+      <div class="success-msg" id="success-view">
+        <div class="success-icon">✅</div>
+        <h3>MESSAGE SENT!</h3>
+        <p>Thanks for reaching out. We'll reply to your email within 24 hours.<br>Check your inbox — including spam.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div><p>Your one-stop destination for electronics, fashion, home & more.</p><div class="footer-socials"><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a><a class="social-btn" href="#">▶</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div><div class="footer-badges"><div class="footer-badge">SSL SECURE</div><div class="footer-badge">PCI DSS</div></div></div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare

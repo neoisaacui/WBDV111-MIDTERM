@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+
+    .faq-wrap { max-width: 860px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; }
+
+    .faq-cats {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 50px;
+    }
+    .faq-cat-btn {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 30px; padding: 8px 20px; color: var(--text);
+      font-size: 13px; font-family: 'DM Sans', sans-serif;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .faq-cat-btn:hover, .faq-cat-btn.active {
+      background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600;
+    }
+
+    .faq-group { margin-bottom: 50px; }
+    .faq-group-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .faq-group-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .faq-item {
+      border: 1px solid var(--border); border-radius: var(--card-radius);
+      margin-bottom: 10px; overflow: hidden; transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: rgba(240,192,64,0.4); }
+
+    .faq-q {
+      padding: 20px 24px; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; background: var(--surface);
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--surface2); }
+    .faq-q-text { font-size: 15px; font-weight: 500; line-height: 1.4; }
+    .faq-chevron {
+      flex-shrink: 0; width: 28px; height: 28px;
+      border: 1px solid var(--border); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--muted);
+      transition: all 0.3s; background: var(--surface2);
+    }
+    .faq-item.open .faq-chevron { background: var(--accent); color: #000; border-color: var(--accent); transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      background: var(--bg);
+    }
+    .faq-a-inner {
+      padding: 0 24px 20px; color: var(--muted);
+      font-size: 14px; line-height: 1.8;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    .faq-cta {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px 40px; text-align: center; margin-top: 60px;
+    }
+    .faq-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; margin-bottom: 12px; }
+    .faq-cta p { color: var(--muted); margin-bottom: 24px; font-size: 15px; }
+    .faq-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-accent {
+      background: var(--accent); color: #000; border: none;
+      border-radius: 10px; padding: 13px 28px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 1.5px;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-accent:hover { background: #f5cc5a; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 13px 28px; font-size: 14px; font-weight: 500;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--surface2); }
+
+    @media (max-width: 700px) { .faq-wrap { padding: 40px 20px; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link active" href="faq.html">FAQ</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="shipping.html">Shipping</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Help Center</div>
+    <h1>FREQUENTLY ASKED <span>QUESTIONS</span></h1>
+    <p>Find quick answers to the most common questions about ordering, shipping, returns, and your account.</p>
+  </div>
+
+  <div class="faq-wrap">
+    <div class="faq-cats">
+      <button class="faq-cat-btn active" onclick="filterFaq('all',this)">All Topics</button>
+      <button class="faq-cat-btn" onclick="filterFaq('orders',this)">Orders</button>
+      <button class="faq-cat-btn" onclick="filterFaq('shipping',this)">Shipping</button>
+      <button class="faq-cat-btn" onclick="filterFaq('returns',this)">Returns</button>
+      <button class="faq-cat-btn" onclick="filterFaq('account',this)">Account</button>
+      <button class="faq-cat-btn" onclick="filterFaq('payment',this)">Payment</button>
+    </div>
+
+    <div class="faq-group" data-cat="orders">
+      <div class="faq-group-title"> Orders</div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I place an order?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Browse products, click "Add to Cart", then open your cart and click "Checkout Now". You'll confirm your address and payment before your order is placed. You'll receive a confirmation email immediately after.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I modify or cancel my order after placing it?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">You can modify or cancel an order within 1 hour of placing it. After that, the order enters our fulfillment process and changes may not be possible. Contact our support team as quickly as possible if you need to make changes.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I track my order?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Once your order ships, you'll receive an email with a tracking number. You can also visit our <a href="track.html" style="color:var(--accent)">Track Order</a> page and enter your order ID to see real-time updates.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What happens if an item is out of stock after I order?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">We'll notify you immediately and offer either a full refund or a substitute product. We never silently ship a different item without your approval.</div></div></div>
+    </div>
+
+    <div class="faq-group" data-cat="shipping">
+      <div class="faq-group-title"> Shipping</div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does delivery take?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Metro Manila: 1–2 business days. Luzon provinces: 2–4 days. Visayas & Mindanao: 3–6 days. International orders: 7–14 days. Exact estimates are shown at checkout based on your address.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is there free shipping?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Yes! Free standard shipping on all orders over ₱999 within the Philippines. SwiftCart Pro members get free shipping on every order with no minimum. International shipping fees vary by country.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you ship internationally?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Yes, we ship to 40+ countries. International shipping is calculated at checkout. Some products may have restrictions due to local import regulations. See our <a href="shipping.html" style="color:var(--accent)">Shipping Policy</a> for a full list of countries.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What carriers do you use?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">We partner with LBC, J&T Express, Ninja Van, and DHL for domestic orders. International orders are shipped via DHL Express or FedEx depending on destination.</div></div></div>
+    </div>
+
+    <div class="faq-group" data-cat="returns">
+      <div class="faq-group-title"> Returns & Refunds</div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What is your return policy?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">We offer a 30-day no-questions-asked return policy on most items. Products must be in original condition with tags attached. Items marked as "Final Sale" are not eligible for returns. See our full <a href="returns.html" style="color:var(--accent)">Returns Policy</a>.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I start a return?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Go to your Account → Orders → select the order → click "Return Item". Choose your reason, print the prepaid return label, and drop it off at any accredited courier branch. Refunds are processed within 3–5 business days after we receive the item.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does a refund take?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Once we receive and inspect your return (1–2 days), refunds are issued within 3–5 business days to your original payment method. Credit card refunds may take an additional 3–7 days to appear on your statement.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I received a damaged or wrong item?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">We're so sorry! Take a photo of the item and contact us within 48 hours of delivery. We'll arrange a free replacement or full refund — your choice. No need to return the item in this case.</div></div></div>
+    </div>
+
+    <div class="faq-group" data-cat="account">
+      <div class="faq-group-title"> Account</div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I create an account?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Click "Sign In" on the homepage and then "Create one free". You can register with your email or continue with Google. Creating an account lets you track orders, save addresses, and earn SwiftPoints rewards.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">I forgot my password. What do I do?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Click "Forgot password?" on the sign-in page, enter your email, and we'll send a reset link within 2 minutes. Check your spam folder if you don't see it. The link expires after 30 minutes.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I delete my account?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Go to Account Settings → Privacy → Delete Account. Your data will be permanently removed within 30 days per our Privacy Policy. Pending orders must be resolved before deletion.</div></div></div>
+    </div>
+
+    <div class="faq-group" data-cat="payment">
+      <div class="faq-group-title"> Payment</div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What payment methods do you accept?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">We accept Visa, Mastercard, GCash, Maya, GrabPay, bank transfer, and Cash on Delivery (COD) for eligible orders within Metro Manila. All online payments are secured with 256-bit SSL encryption.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is it safe to enter my card details?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Absolutely. We use bank-grade 256-bit SSL encryption and are PCI DSS compliant. We never store your full card number — payments are processed directly through our certified payment partners.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I pay in installments?</span><span class="faq-chevron">▾</span></div><div class="faq-a"><div class="faq-a-inner">Yes! We offer 0% installment plans (3, 6, or 12 months) on orders over ₱3,000 with participating Visa and Mastercard credit cards. Select "Installment" at checkout to see available plans.</div></div></div>
+    </div>
+
+    <div class="faq-cta">
+      <h3>STILL HAVE QUESTIONS?</h3>
+      <p>Our support team is available 7 days a week, 8AM–10PM PHT.</p>
+      <div class="faq-cta-btns">
+        <a class="btn-accent" href="contact.html">Contact Support</a>
+        <a class="btn-outline" href="#">Live Chat</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div>
+        <p>Your one-stop destination for electronics, fashion, home & more.</p>
+        <div class="footer-socials">
+          <a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a>
+          <a class="social-btn" href="#">in</a><a class="social-btn" href="#">▶</a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a><a href="index.html">Home & Living</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="#">Careers</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping Info</a><a href="returns.html">Returns</a><a href="track.html">Track Order</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div>
+      <div class="footer-badges"><div class="footer-badge">SSL SECURE</div><div class="footer-badge">PCI DSS</div></div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('open');
+    }
+    function filterFaq(cat, btn) {
+      document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.faq-group').forEach(g => {
+        g.style.display = (cat === 'all' || g.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

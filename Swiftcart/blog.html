@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; }
+
+    .blog-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .blog-tag { background: var(--surface); border: 1px solid var(--border); border-radius: 30px; padding: 7px 18px; color: var(--muted); font-size: 13px; cursor: pointer; transition: all 0.2s; }
+    .blog-tag:hover, .blog-tag.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+
+    .featured-post {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; display: grid;
+      grid-template-columns: 1.2fr 1fr; margin-bottom: 40px;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .featured-post:hover { border-color: rgba(240,192,64,0.4); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .featured-img { background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 80px; min-height: 280px; }
+    .featured-body { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .post-tag { display: inline-block; background: var(--accent); color: #000; font-size: 9px; font-family: 'DM Mono', monospace; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+    .post-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1.5px; line-height: 1.05; margin-bottom: 14px; }
+    .post-excerpt { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+    .post-meta { display: flex; align-items: center; gap: 14px; font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+    .post-author { color: var(--text); font-weight: 500; }
+
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; cursor: pointer; transition: all 0.3s; }
+    .post-card:hover { border-color: rgba(240,192,64,0.4); transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,0.3); }
+    .post-img { height: 160px; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .post-body { padding: 22px 20px; }
+    .post-card .post-tag { font-size: 8px; }
+    .post-card .post-title { font-size: 20px; margin-bottom: 10px; }
+    .post-card .post-excerpt { font-size: 13px; margin-bottom: 16px; }
+    .post-card .post-meta { font-size: 11px; }
+    .read-more { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; }
+
+    @media (max-width: 900px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-img { min-height: 180px; }
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+      .content { padding: 40px 20px; }
+    }
+    @media (max-width: 600px) { .posts-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="shipping.html">Shipping</a>
+      <a class="nav-link active" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions"><a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a></div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">SwiftCart Blog</div>
+    <h1>STORIES, TIPS &<br><span>BUYING GUIDES</span></h1>
+    <p>From product deep-dives to shopping hacks — everything you need to shop smarter.</p>
+  </div>
+
+  <div class="content">
+    <div class="blog-tags">
+      <div class="blog-tag active">All</div>
+      <div class="blog-tag">Tech</div>
+      <div class="blog-tag">Fashion</div>
+      <div class="blog-tag">Home</div>
+      <div class="blog-tag">Deals</div>
+      <div class="blog-tag">Guides</div>
+      <div class="blog-tag">News</div>
+    </div>
+
+    <!-- Featured -->
+    <div class="featured-post">
+      <div class="featured-img">🎧</div>
+      <div class="featured-body">
+        <div class="post-tag">Featured · Tech</div>
+        <div class="post-title">THE 10 BEST WIRELESS HEADPHONES OF 2026</div>
+        <p class="post-excerpt">We tested over 40 pairs of headphones across every price point. Here are the ones worth your money — from budget buds to premium over-ears.</p>
+        <div class="post-meta"><span class="post-author">Ana Santos</span><span>·</span><span>April 1, 2026</span><span>·</span><span>8 min read</span></div>
+      </div>
+    </div>
+
+    <!-- Grid Posts -->
+    <div class="posts-grid">
+      <div class="post-card"><div class="post-img">👗</div><div class="post-body"><div class="post-tag">Fashion</div><div class="post-title">SUMMER 2026 STYLE TRENDS</div><p class="post-excerpt">From oversized linen to bold color blocking — what to wear this season.</p><div class="post-meta"><span class="post-author">Carla M.</span><span>·</span><span>Mar 28</span><span>·</span><span class="read-more">5 min →</span></div></div></div>
+      <div class="post-card"><div class="post-img">🏠</div><div class="post-body"><div class="post-tag">Home</div><div class="post-title">10 HOME UPGRADES UNDER ₱1,000</div><p class="post-excerpt">Simple swaps that make a big difference to how your home looks and feels.</p><div class="post-meta"><span class="post-author">Luis C.</span><span>·</span><span>Mar 22</span><span>·</span><span class="read-more">4 min →</span></div></div></div>
+      <div class="post-card"><div class="post-img">💰</div><div class="post-body"><div class="post-tag">Deals</div><div class="post-title">HOW TO STACK PROMO CODES</div><p class="post-excerpt">A step-by-step guide to maximizing discounts on every SwiftCart order.</p><div class="post-meta"><span class="post-author">Marco R.</span><span>·</span><span>Mar 15</span><span>·</span><span class="read-more">3 min →</span></div></div></div>
+      <div class="post-card"><div class="post-img">⌚</div><div class="post-body"><div class="post-tag">Tech</div><div class="post-title">SMARTWATCH BUYING GUIDE 2026</div><p class="post-excerpt">Health tracking, GPS, battery life — what to prioritize for your lifestyle.</p><div class="post-meta"><span class="post-author">Ana S.</span><span>·</span><span>Mar 10</span><span>·</span><span class="read-more">7 min →</span></div></div></div>
+      <div class="post-card"><div class="post-img">🌿</div><div class="post-body"><div class="post-tag">Guides</div><div class="post-title">BUILDING A SUSTAINABLE WARDROBE</div><p class="post-excerpt">How to shop less, choose better, and build a closet that lasts for years.</p><div class="post-meta"><span class="post-author">Carla M.</span><span>·</span><span>Mar 5</span><span>·</span><span class="read-more">6 min →</span></div></div></div>
+      <div class="post-card"><div class="post-img">📦</div><div class="post-body"><div class="post-tag">News</div><div class="post-title">SWIFTCART NOW SHIPS TO JAPAN</div><p class="post-excerpt">We've expanded international shipping to Japan, Korea, and Hong Kong.</p><div class="post-meta"><span class="post-author">SwiftCart</span><span>·</span><span>Feb 28</span><span>·</span><span class="read-more">2 min →</span></div></div></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div><p>Your one-stop destination for electronics, fashion, home & more.</p><div class="footer-socials"><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a><a class="social-btn" href="#">▶</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a><a href="track.html">Track Order</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div><div class="footer-badges"><div class="footer-badge">SSL SECURE</div><div class="footer-badge">PCI DSS</div></div></div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.blog-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.blog-tag').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

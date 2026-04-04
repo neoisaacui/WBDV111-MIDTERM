@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order — SwiftCart</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { display: flex; flex-direction: column; }
+    .content { max-width: 700px; margin: 0 auto; padding: 70px 40px; width: 100%; flex: 1; }
+
+    .track-box { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px; margin-bottom: 40px; }
+    .track-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; margin-bottom: 6px; }
+    .track-sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
+    .track-row { display: flex; gap: 12px; }
+    .track-input {
+      flex: 1; background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px; color: var(--text);
+      font-family: 'DM Mono', monospace; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .track-input:focus { border-color: var(--accent); }
+    .track-input::placeholder { color: var(--muted); }
+    .track-btn {
+      background: var(--accent); color: #000; border: none;
+      border-radius: 10px; padding: 14px 28px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 1.5px;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .track-btn:hover { background: #f5cc5a; }
+
+    .result { display: none; }
+    .result.show { display: block; }
+
+    .order-summary {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px; margin-bottom: 24px;
+    }
+    .order-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    .order-id { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 6px; }
+    .order-name { font-size: 18px; font-weight: 700; }
+    .status-badge { background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.3); color: var(--success); border-radius: 20px; padding: 6px 16px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+    .order-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .meta-item { }
+    .meta-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .meta-val { font-size: 14px; font-weight: 500; }
+
+    .timeline-track { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+    .tl-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; margin-bottom: 28px; }
+    .tl { position: relative; padding-left: 32px; }
+    .tl::before { content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+    .tl-step { position: relative; margin-bottom: 28px; }
+    .tl-step:last-child { margin-bottom: 0; }
+    .tl-dot2 { position: absolute; left: -28px; top: 3px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); }
+    .tl-dot2.done { background: var(--success); border-color: var(--success); }
+    .tl-dot2.active { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(240,192,64,0.2); }
+    .tl-step-title { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+    .tl-step-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 4px; }
+    .tl-step-desc { font-size: 13px; color: var(--muted); }
+    .tl-step.pending .tl-step-title { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .track-row { flex-direction: column; }
+      .order-meta { grid-template-columns: 1fr 1fr; }
+      .content { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html"><div class="dot"></div>SWIFTCART</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Shop</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="shipping.html">Shipping</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+    </div>
+    <div class="nav-actions"><a class="nav-btn cart-btn" href="index.html">🛒 Shop Now</a></div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">Order Tracking</div>
+    <h1>TRACK YOUR <span>ORDER</span></h1>
+    <p>Enter your order ID or tracking number below to see real-time delivery updates.</p>
+  </div>
+
+  <div class="content">
+    <div class="track-box">
+      <div class="track-title">ENTER ORDER DETAILS</div>
+      <div class="track-sub">Find your order ID in your confirmation email (format: SC-2026-XXXXXX)</div>
+      <div class="track-row">
+        <input class="track-input" id="track-input" placeholder="SC-2026-XXXXXX or tracking number" type="text">
+        <button class="track-btn" onclick="trackOrder()">TRACK &rarr;</button>
+      </div>
+    </div>
+
+    <div class="result" id="track-result">
+      <div class="order-summary">
+        <div class="order-top">
+          <div><div class="order-id">Order #SC-2026-004821</div><div class="order-name">Wireless Headphones Pro + 2 items</div></div>
+          <div class="status-badge">Out for Delivery</div>
+        </div>
+        <div class="order-meta">
+          <div class="meta-item"><div class="meta-label">Estimated Delivery</div><div class="meta-val">Today, by 8PM</div></div>
+          <div class="meta-item"><div class="meta-label">Carrier</div><div class="meta-val">J&T Express</div></div>
+          <div class="meta-item"><div class="meta-label">Tracking No.</div><div class="meta-val" style="font-family:'DM Mono',monospace;font-size:12px">JT0049281732PH</div></div>
+        </div>
+      </div>
+
+      <div class="timeline-track">
+        <div class="tl-title">DELIVERY TIMELINE</div>
+        <div class="tl">
+          <div class="tl-step"><div class="tl-dot2 done"></div><div class="tl-step-title">Order Placed</div><div class="tl-step-time">Apr 2, 2026 · 10:23 AM</div><div class="tl-step-desc">Your order was confirmed and payment received.</div></div>
+          <div class="tl-step"><div class="tl-dot2 done"></div><div class="tl-step-title">Order Packed</div><div class="tl-step-time">Apr 2, 2026 · 3:45 PM</div><div class="tl-step-desc">Items picked and packed at Taguig Fulfillment Center.</div></div>
+          <div class="tl-step"><div class="tl-dot2 done"></div><div class="tl-step-title">Picked Up by Courier</div><div class="tl-step-time">Apr 3, 2026 · 8:12 AM</div><div class="tl-step-desc">J&T Express picked up your package.</div></div>
+          <div class="tl-step"><div class="tl-dot2 done"></div><div class="tl-step-title">Arrived at Sorting Hub</div><div class="tl-step-time">Apr 3, 2026 · 2:30 PM</div><div class="tl-step-desc">Package arrived at J&T Pasig Hub and sorted.</div></div>
+          <div class="tl-step"><div class="tl-dot2 active"></div><div class="tl-step-title">Out for Delivery</div><div class="tl-step-time">Apr 4, 2026 · 7:55 AM</div><div class="tl-step-desc">Your package is with the delivery rider. Expected by 8PM today.</div></div>
+          <div class="tl-step pending"><div class="tl-dot2"></div><div class="tl-step-title">Delivered</div><div class="tl-step-time">Pending</div><div class="tl-step-desc">Package delivered to your address.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-brand-logo"><div class="dot"></div>SWIFTCART</div><p>Your one-stop destination for electronics, fashion, home & more.</p><div class="footer-socials"><a class="social-btn" href="#">𝕏</a><a class="social-btn" href="#">f</a><a class="social-btn" href="#">in</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Shop</div><a href="index.html">All Products</a><a href="index.html">Electronics</a><a href="index.html">Fashion</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Support</div><a href="faq.html">FAQ</a><a href="shipping.html">Shipping</a><a href="returns.html">Returns</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SwiftCart. All rights reserved.</div></div>
+  </footer>
+
+  <script>
+    function trackOrder() {
+      const val = document.getElementById('track-input').value.trim();
+      if (!val) return;
+      document.getElementById('track-result').classList.add('show');
+      document.getElementById('track-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.getElementById('track-input').addEventListener('keydown', e => { if (e.key === 'Enter') trackOrder(); });
+  </script>
+</body>
+</html>
