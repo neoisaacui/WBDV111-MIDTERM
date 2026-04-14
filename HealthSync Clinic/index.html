@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthSync Clinic</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ticker bar -->
+  <div class="ticker-bar" aria-label="Clinic announcements">
+    <div class="ticker-inner" id="tickerInner">
+      <span class="ticker-item"><span class="ticker-dot"></span>All 4 branches open today · 8 specialties available</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>New: Friday OB-Gyne slots now bookable</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Walk-in slots available at North Branch until 3 PM</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>16 doctors active today across all branches</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Autosave keeps your booking safe if you need to pause</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>All 4 branches open today · 8 specialties available</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>New: Friday OB-Gyne slots now bookable</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Walk-in slots available at North Branch until 3 PM</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>16 doctors active today across all branches</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Autosave keeps your booking safe if you need to pause</span>
+    </div>
+  </div>
+
+  <div class="page-bg" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="grid-fade"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand-block">
+      <div class="brand-mark">HS</div>
+      <div>
+        <p class="eyebrow">Clinic Management System</p>
+        <h1>HealthSync Clinic</h1>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="#wizard">Wizard</a>
+      <a href="login.html">Login</a>
+      <button class="theme-toggle" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle color theme">☀︎</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="hero card fade-in-up">
+      <div class="hero-copy">
+        <span class="eyebrow">Modern · Clean · Mobile-First</span>
+        <h2>Appointment booking <em>without</em> the usual form fatigue.</h2>
+        <p class="hero-text">
+          Patients move through one clear question at a time: select a specialty, pick a doctor, choose a time, and confirm. Staff, admins, and end users access role-specific dashboards through a secure login.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#wizard">Start Booking →</a>
+          <a class="secondary-link" href="login.html">Login to Dashboard</a>
+        </div>
+        <div class="hero-concept">
+          <span class="concept-tag">Design Concept</span>
+          <p>
+            A clean, clinical blue and mint palette that evokes trust, clarity, and calm — designed for the comfort of both patients and healthcare providers.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="carousel-card">
+          <div class="carousel-topbar">
+            <span class="carousel-chip"></span>
+            <div class="carousel-controls">
+              <button id="carouselPrev" class="carousel-button" type="button" aria-label="Previous slide">←</button>
+              <button id="carouselNext" class="carousel-button" type="button" aria-label="Next slide">→</button>
+            </div>
+          </div>
+
+          <div class="carousel-stage" id="careCarousel">
+            <article class="carousel-slide active" data-slide-caption="A welcoming reception area designed to ease anxiety and orient patients the moment they arrive.">
+              <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Bright, modern hospital reception area with clean white interiors." loading="eager" referrerpolicy="no-referrer">
+              <div class="carousel-overlay">
+                <p class="carousel-kicker">Arrival Experience</p>
+                <h3>Modern reception, warm welcome</h3>
+                <p>Clean spaces that put patients at ease immediately.</p>
+              </div>
+            </article>
+
+            <article class="carousel-slide" data-slide-caption="A trusted doctor-patient consultation in a calm, professional medical setting with modern equipment.">
+              <img src="https://i.pinimg.com/736x/36/b7/27/36b727443c7e1f435b7ed8a7faa6ba29.jpg" alt="Doctor in white coat consulting with a patient in a bright clinic room." loading="lazy" referrerpolicy="no-referrer">
+              <div class="carousel-overlay">
+                <p class="carousel-kicker">Expert Care</p>
+                <h3>Trusted consultations, clear outcomes</h3>
+                <p>Experienced clinicians across all major specialties.</p>
+              </div>
+            </article>
+
+            <article class="carousel-slide" data-slide-caption="Accessible digital health tools that make booking and managing appointments effortless for every patient.">
+              <img src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Healthcare professional using a tablet for digital patient records and appointment management." loading="lazy" referrerpolicy="no-referrer">
+              <div class="carousel-overlay">
+                <p class="carousel-kicker">Digital Health</p>
+                <h3>Smart tools for seamless care</h3>
+                <p>Book, track, and manage appointments digitally.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel-footer">
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" type="button" aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" type="button" aria-label="Go to slide 2"></button>
+              <button class="carousel-dot" type="button" aria-label="Go to slide 3"></button>
+            </div>
+            <p class="carousel-caption" id="carouselCaption">
+              A welcoming reception area designed to ease anxiety and orient patients the moment they arrive.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <span>Branches</span>
+            <strong>4</strong>
+          </div>
+          <div class="hero-stat">
+            <span>Active Doctors</span>
+            <strong id="heroDoctorCount">0</strong>
+          </div>
+          <div class="hero-stat">
+            <span>Pending</span>
+            <strong id="heroPendingCount">0</strong>
+          </div>
+          <div class="hero-stat callout">
+            <span>Wizard Promise</span>
+            <strong>Autosave on every step</strong>
+            <p>No lost progress if a patient pauses mid-booking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wizard" class="booking-layout">
+      <article class="card wizard-card fade-in-up">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Core Feature</span>
+            <h2>The HealthSync Wizard</h2>
+          </div>
+          <button id="resetWizard" class="ghost-button" type="button">Reset Wizard</button>
+        </div>
+
+        <div class="progress-row">
+          <div>
+            <p class="progress-title" id="stepLabel">Step 1 of 4</p>
+            <p class="progress-subtitle" id="stepSubtitle">Select the type of care you need.</p>
+          </div>
+          <span class="autosave-chip">Autosave Active</span>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="wizard-panel">
+          <p class="wizard-question" id="wizardQuestion"></p>
+          <div id="wizardScreen" class="wizard-screen"></div>
+        </div>
+
+        <div class="wizard-nav">
+          <button id="backButton" class="nav-button muted" type="button">← Back</button>
+          <button id="nextButton" class="nav-button primary" type="button">Continue →</button>
+        </div>
+      </article>
+
+      <aside class="card side-card fade-in-up">
+        <div class="section-head compact">
+          <div>
+            <span class="eyebrow">Live Summary</span>
+            <h2>Your booking</h2>
+          </div>
+        </div>
+
+        <div class="summary-list">
+          <div class="summary-item">
+            <span>Specialty</span>
+            <strong id="summarySpecialty">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Doctor</span>
+            <strong id="summaryDoctor">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Date</span>
+            <strong id="summaryDate">Not selected</strong>
+          </div>
+          <div class="summary-item">
+            <span>Time</span>
+            <strong id="summaryTime">Not selected</strong>
+          </div>
+        </div>
+
+        <div class="side-note" id="resumeNotice">
+          Your progress is stored locally in this browser so patients can safely resume later.
+        </div>
+
+        <div class="state-card">
+          <p class="state-title">Production state strategy</p>
+          <ul class="plain-list">
+            <li>Use a persisted store for the wizard so step data survives refreshes.</li>
+            <li>Sync final bookings to the backend only after the user confirms.</li>
+            <li>Protect each step with validation before moving forward.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="wizard.js"></script>
+  <script>
+    // ── Theme toggle ──
+    const themeToggle = document.getElementById('themeToggle');
+    let darkMode = false;
+    themeToggle.addEventListener('click', () => {
+      darkMode = !darkMode;
+      if (darkMode) {
+        document.documentElement.style.setProperty('--bg', '#0d1117');
+        document.documentElement.style.setProperty('--surface', '#161b22');
+        document.documentElement.style.setProperty('--surface-2', '#1c2330');
+        document.documentElement.style.setProperty('--surface-3', '#22293a');
+        document.documentElement.style.setProperty('--text', '#e6edf3');
+        document.documentElement.style.setProperty('--text-2', '#c9d1d9');
+        document.documentElement.style.setProperty('--text-3', '#8b949e');
+        document.documentElement.style.setProperty('--text-4', '#6e7681');
+        document.documentElement.style.setProperty('--border', '#30363d');
+        document.documentElement.style.setProperty('--border-2', '#3d444d');
+        document.body.style.background = '#0d1117';
+      } else {
+        document.documentElement.style.removeProperty('--bg');
+        document.documentElement.style.removeProperty('--surface');
+        document.documentElement.style.removeProperty('--surface-2');
+        document.documentElement.style.removeProperty('--surface-3');
+        document.documentElement.style.removeProperty('--text');
+        document.documentElement.style.removeProperty('--text-2');
+        document.documentElement.style.removeProperty('--text-3');
+        document.documentElement.style.removeProperty('--text-4');
+        document.documentElement.style.removeProperty('--border');
+        document.documentElement.style.removeProperty('--border-2');
+        document.body.style.background = '';
+      }
+      themeToggle.textContent = darkMode ? '☾' : '☀︎';
+    });
+
+    // ── Scroll fade-in ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
