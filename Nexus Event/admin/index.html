@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Events | Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="admin-dashboard">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="../index.html">Nexus Events</a>
+      <nav class="nav-links">
+        <a href="../index.html">← Back to Site</a>
+        <button class="btn btn--ghost btn--sm" type="button" data-admin-logout>Log Out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:3rem;">
+    <div style="display:grid;grid-template-columns:1fr auto;align-items:start;gap:2rem;margin-bottom:2.5rem;">
+      <div>
+        <div class="eyebrow">Admin Desk</div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;margin-bottom:1rem;">Control Room</h1>
+        <div class="button-row">
+          <button class="btn btn--primary btn--sm" type="button">+ New Event</button>
+          <button class="btn btn--outline btn--sm" type="button">Update Ticket Tiers</button>
+        </div>
+      </div>
+      <div class="panel panel--gold" style="text-align:center;padding:1.5rem 2rem;">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px rgba(45,212,191,0.6);margin:0 auto 0.6rem;animation:pulse-dot 1.5s ease infinite;"></div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:0.3rem;">LIVE TONIGHT</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;">Crystal Frequencies</p>
+        <p style="font-size:0.78rem;color:var(--text-secondary);">9:00 PM · Main Hall</p>
+        <a class="btn btn--ghost btn--sm" href="../events.html" style="margin-top:0.8rem;">View Public Page</a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" style="margin-bottom:2.5rem;">
+      <div class="stat">
+        <strong>1,248</strong>
+        <span>Tickets sold today</span>
+      </div>
+      <div class="stat">
+        <strong>92%</strong>
+        <span>Venue capacity</span>
+      </div>
+      <div class="stat">
+        <strong>18</strong>
+        <span>Active staff</span>
+      </div>
+      <div class="stat">
+        <strong>6</strong>
+        <span>Open support tickets</span>
+      </div>
+    </div>
+
+    <!-- Admin Grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+
+      <div class="panel">
+        <div class="checkout-panel-title">Upcoming Events</div>
+        <div class="admin-table">
+          <div class="table-row table-head">
+            <span>Event</span><span>Date</span><span>Status</span>
+          </div>
+          <div class="table-row">
+            <span>Velvet Hour</span><span>May 17</span>
+            <span class="status status--green">On Track</span>
+          </div>
+          <div class="table-row">
+            <span>Night Market</span><span>May 24</span>
+            <span class="status status--yellow">Staffing</span>
+          </div>
+          <div class="table-row">
+            <span>Golden Interval</span><span>May 31</span>
+            <span class="status status--green">Confirmed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="checkout-panel-title">Ticket Pulse</div>
+        <div class="ticket-meter">
+          <div class="meter-row">
+            <span>Luminary</span>
+            <div class="meter"><span style="width:70%"></span></div>
+            <strong style="font-size:0.82rem;color:var(--gold);">70%</strong>
+          </div>
+          <div class="meter-row">
+            <span>Aura</span>
+            <div class="meter"><span style="width:54%"></span></div>
+            <strong style="font-size:0.82rem;color:var(--gold);">54%</strong>
+          </div>
+          <div class="meter-row">
+            <span>Pinnacle</span>
+            <div class="meter"><span style="width:32%"></span></div>
+            <strong style="font-size:0.82rem;color:var(--gold);">32%</strong>
+          </div>
+        </div>
+        <div class="button-row" style="margin-top:1.2rem;">
+          <button class="btn btn--ghost btn--sm" type="button">Adjust Pricing</button>
+          <button class="btn btn--ghost btn--sm" type="button">Export List</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="checkout-panel-title">Venue Ops</div>
+        <ul class="checklist">
+          <li class="checklist-item"><span class="status status--green">Ready</span> Stage lighting rig checked</li>
+          <li class="checklist-item"><span class="status status--green">Ready</span> Pavilion vendor load-in</li>
+          <li class="checklist-item"><span class="status status--yellow">Pending</span> Rooftop sound calibration</li>
+          <li class="checklist-item"><span class="status status--red">Alert</span> VIP lounge restock needed</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="checkout-panel-title">Guest Inbox</div>
+        <div class="admin-table">
+          <div class="table-row table-head">
+            <span>Sender</span><span>Topic</span><span>Priority</span>
+          </div>
+          <div class="table-row">
+            <span>J. Alvarez</span><span>Group Booking</span>
+            <span class="status status--yellow">Medium</span>
+          </div>
+          <div class="table-row">
+            <span>Press Studio</span><span>Media Pass</span>
+            <span class="status status--red">High</span>
+          </div>
+          <div class="table-row">
+            <span>Print Studio</span><span>Inventory</span>
+            <span class="status status--green">Low</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Nexus Events</span>
+      <p>© <span data-year></span> Nexus Events Oyin. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js" defer></script>
+  <script src="../js/admin.js" defer></script>
+</body>
+</html>
