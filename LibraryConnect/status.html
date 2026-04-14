@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Management | LibraryConnect</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>Library<span>Connect</span></h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="status.html" class="active">Book Management</a>
+    <a href="memlists.html">Members List</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <div class="search-bar">
+    <input type="text" placeholder="Search books...">
+    <button>Search</button>
+  </div>
+</header>
+
+<section class="manage">
+  <span class="section-label">Inventory Overview</span>
+  <h2>Library Book Management</h2>
+  <p class="page-intro">View borrow status, due dates, and availability for all library titles.</p>
+
+  <table>
+    <tr>
+      <th>Book Title</th>
+      <th>Status</th>
+      <th>Due Date</th>
+    </tr>
+    <tr>
+      <td>The Hobbit</td>
+      <td><span class="status-badge status-borrowed">Borrowed</span></td>
+      <td>June 20, 2026</td>
+    </tr>
+    <tr>
+      <td>Dune</td>
+      <td><span class="status-badge status-available">Available</span></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>The Martian</td>
+      <td><span class="status-badge status-borrowed">Borrowed</span></td>
+      <td>June 25, 2026</td>
+    </tr>
+    <tr class="overdue">
+      <td>Harry Potter and the Sorcerer's Stone</td>
+      <td><span class="status-badge status-overdue">Overdue</span></td>
+      <td>May 30, 2026</td>
+    </tr>
+    <tr>
+      <td>The Da Vinci Code</td>
+      <td><span class="status-badge status-borrowed">Borrowed</span></td>
+      <td>June 22, 2026</td>
+    </tr>
+    <tr class="overdue">
+      <td>1984</td>
+      <td><span class="status-badge status-overdue">Overdue</span></td>
+      <td>May 28, 2026</td>
+    </tr>
+    <tr>
+      <td>To Kill a Mockingbird</td>
+      <td><span class="status-badge status-available">Available</span></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>The Great Gatsby</td>
+      <td><span class="status-badge status-borrowed">Borrowed</span></td>
+      <td>June 27, 2026</td>
+    </tr>
+    <tr>
+      <td>Project Hail Mary</td>
+      <td><span class="status-badge status-available">Available</span></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Sapiens</td>
+      <td><span class="status-badge status-borrowed">Borrowed</span></td>
+      <td>June 30, 2026</td>
+    </tr>
+  </table>
+</section>
+
+</body>
+</html>
