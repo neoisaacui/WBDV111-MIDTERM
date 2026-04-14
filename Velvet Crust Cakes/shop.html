@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Velvet Crust Cakes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="cakelogo.png" alt="Velvet Crust Logo" onerror="this.style.display='none'">
+        <span class="nav-logo-text">Velvet <span>Crust</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="summary.html" class="nav-cart-badge">
+          🛒 Cart <span class="cart-count-badge cart-count">0</span>
+        </a>
+        <a href="login.html" class="btn-primary" style="padding:10px 22px; font-size:14px;">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CART MODAL -->
+  <div id="cart-modal" class="modal-overlay">
+    <div class="modal-box">
+      <h2 class="modal-title" id="modal-title">Add to Cart</h2>
+      <p class="modal-msg" id="modal-msg"></p>
+      <div class="qty-box">
+        <label for="item-qty">Quantity:</label>
+        <input type="number" id="item-qty" value="1" min="1" max="20">
+      </div>
+      <div class="modal-actions">
+        <button id="modal-yes" class="btn-primary" style="flex:1">Add to Cart</button>
+        <button id="modal-no" class="btn-secondary" style="flex:1">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <span class="section-label">Our Collection</span>
+    <h1>The Full Cake Menu</h1>
+    <p>Explore every flavour, style, and occasion — find your perfect cake today.</p>
+  </div>
+
+  <!-- SHOP SECTION -->
+  <section class="products-section">
+    <div class="container">
+      <div class="shop-filters">
+        <button class="filter-btn active" data-filter="All">All Cakes</button>
+        <button class="filter-btn" data-filter="Birthday">🎂 Birthday</button>
+        <button class="filter-btn" data-filter="Wedding">💍 Wedding</button>
+        <button class="filter-btn" data-filter="Custom">🎨 Custom</button>
+      </div>
+      <div class="product-grid" id="full-grid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">Velvet <span>Crust</span></div>
+          <p>Handcrafted cakes made with premium ingredients and a whole lot of love.</p>
+          <div class="footer-socials">
+            <a class="footer-social-btn" href="#" aria-label="Instagram">📸</a>
+            <a class="footer-social-btn" href="#" aria-label="Facebook">📘</a>
+            <a class="footer-social-btn" href="#" aria-label="TikTok">🎵</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">Birthday Cakes</a></li>
+            <li><a href="shop.html">Wedding Cakes</a></li>
+            <li><a href="shop.html">Custom Cakes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Our Bakers</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Delivery Info</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Velvet Crust Cakes. All rights reserved.</span>
+        <span>Made with 🩷 in the Philippines</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

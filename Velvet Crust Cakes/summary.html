@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Velvet Crust Cakes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="cakelogo.png" alt="Velvet Crust Logo" onerror="this.style.display='none'">
+        <span class="nav-logo-text">Velvet <span>Crust</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="summary.html" class="nav-cart-badge active">
+          🛒 Cart <span class="cart-count-badge cart-count">0</span>
+        </a>
+        <a href="login.html" class="btn-primary" style="padding:10px 22px; font-size:14px;">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="cart-modal" class="modal-overlay">
+    <div class="modal-box">
+      <h2 class="modal-title" id="modal-title">Add to Cart</h2>
+      <p class="modal-msg" id="modal-msg"></p>
+      <div class="qty-box">
+        <label for="item-qty">Quantity:</label>
+        <input type="number" id="item-qty" value="1" min="1" max="20">
+      </div>
+      <div class="modal-actions">
+        <button id="modal-yes" class="btn-primary" style="flex:1">Add to Cart</button>
+        <button id="modal-no" class="btn-secondary" style="flex:1">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="page-header">
+    <span class="section-label">Your Selection</span>
+    <h1>Order Summary</h1>
+    <p>Review your cakes and proceed when you're ready.</p>
+  </div>
+
+
+  <section class="cart-section">
+    <div class="container">
+
+      <!-- Empty State -->
+      <div id="cart-empty" class="cart-empty" style="display:none;">
+        <span class="cart-empty-icon">🛒</span>
+        <h3>Your cart is empty</h3>
+        <p style="margin-bottom:24px; color:var(--text-light);">Looks like you haven't added any cakes yet.</p>
+        <a href="shop.html" class="btn-primary">Browse Our Cakes</a>
+      </div>
+
+      <div class="cart-layout">
+        <!-- Cart Table -->
+        <div id="cart-table-wrap" class="cart-table-wrap">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+          </table>
+        </div>
+
+
+        <div id="cart-summary-card" class="cart-summary-card">
+          <h3 class="cart-summary-title">🧾 Order Summary</h3>
+          <div class="cart-summary-row">
+            <span>Subtotal</span>
+            <span>$<span id="subtotal-price">0.00</span></span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Delivery</span>
+            <span style="color:var(--pink-rose)">Free 🎉</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Gift Packaging</span>
+            <span>Included</span>
+          </div>
+          <div class="cart-summary-row total">
+            <span>Grand Total</span>
+            <span>$<span id="total-price">0.00</span></span>
+          </div>
+
+  
+          <div id="delivery-info-summary" style="margin:16px 0; padding:12px; background:var(--pink-light); border-radius:12px; font-size:13px; color:var(--text-mid); display:none;">
+            📅 <strong>Delivery scheduled</strong><br>
+            <span id="delivery-info-text"></span>
+          </div>
+
+          <button id="checkout-btn" class="btn-primary cart-checkout-btn">
+            Proceed to Checkout →
+          </button>
+          <a href="shop.html" class="btn-secondary" style="width:100%; margin-top:12px; justify-content:center; display:flex;">
+            ← Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2025 Velvet Crust Cakes. All rights reserved.</span>
+        <span>Made with 🩷 in the Philippines</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('vc_delivery');
+      if (saved) {
+        try {
+          const { date, time } = JSON.parse(saved);
+          const d = new Date(date);
+          const formatted = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+          const timeLabel = time ? ` at ${time}` : '';
+          const infoEl = document.getElementById('delivery-info-summary');
+          const textEl = document.getElementById('delivery-info-text');
+          if (infoEl && textEl) {
+            textEl.textContent = `${formatted}${timeLabel}`;
+            infoEl.style.display = 'block';
+          }
+        } catch (e) {}
+      }
+    });
+  </script>
+</body>
+</html>

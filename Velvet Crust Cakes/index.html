@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velvet Crust Cakes | Artisan Cakes Delivered</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="cakelogo.png" alt="Velvet Crust Logo" onerror="this.style.display='none'">
+        <span class="nav-logo-text">Velvet <span>Crust</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="summary.html" class="nav-cart-badge">
+          🛒 Cart <span class="cart-count-badge cart-count">0</span>
+        </a>
+        <a href="login.html" class="btn-primary" style="padding:10px 22px; font-size:14px;">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="cart-modal" class="modal-overlay">
+    <div class="modal-box">
+      <h2 class="modal-title" id="modal-title">Add to Cart</h2>
+      <p class="modal-msg" id="modal-msg"></p>
+      <div class="qty-box">
+        <label for="item-qty">Quantity:</label>
+        <input type="number" id="item-qty" value="1" min="1" max="20">
+      </div>
+      <div class="modal-actions">
+        <button id="modal-yes" class="btn-primary" style="flex:1">Add to Cart</button>
+        <button id="modal-no" class="btn-secondary" style="flex:1">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <section class="hero">
+    <div class="hero-bg-decor">
+      <div class="hero-circle hero-circle-1"></div>
+      <div class="hero-circle hero-circle-2"></div>
+      <div class="hero-circle hero-circle-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content fade-up">
+        <div class="hero-badge">
+          <span>✨</span> Handcrafted with love since 2019
+        </div>
+        <h1 class="hero-title">
+          Artisan Crusts,<br><em>Velvety Centers</em>
+        </h1>
+        <p class="hero-desc">
+          Experience the finest handcrafted cakes, made fresh daily with premium ingredients and delivered to your door with care.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn-primary">🎂 Order Now</a>
+          <a href="about.html" class="btn-secondary">Our Story</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num"></div>
+            <div class="hero-stat-label"></div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"></div>
+            <div class="hero-stat-label"></div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num"></div>
+            <div class="hero-stat-label"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-carousel">
+          <div class="hero-carousel-frame">
+            <img id="carousel-img" src="https://i.pinimg.com/736x/2e/5a/70/2e5a703852a993cd435af4c7f26ae1d3.jpg" alt="Featured Cake"
+              onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#fde8ef,#f7c5d5)'; this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:100px\'>🎂</div>'">
+          </div>
+          <div class="hero-carousel-dots">
+            <button class="carousel-dot active" aria-label="Slide 1"></button>
+            <button class="carousel-dot" aria-label="Slide 2"></button>
+            <button class="carousel-dot" aria-label="Slide 3"></button>
+          </div>
+        </div>
+
+        <div class="hero-floating-card hero-card-1">
+          <div class="hero-card-icon">🚚</div>
+          <div class="hero-card-text">
+            <strong>Free Delivery</strong>
+            <span>Orders over $50</span>
+          </div>
+        </div>
+
+        <div class="hero-floating-card hero-card-2">
+          <div class="hero-card-icon">⭐</div>
+          <div class="hero-card-text">
+            <strong>4.9 / 5 Rating</strong>
+            <span>From 500+ reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="categories">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Browse By</span>
+          <h2 class="section-title">What's the Occasion?</h2>
+          <p class="section-subtitle">From intimate birthdays to grand weddings — we have the perfect cake for every moment.</p>
+        </div>
+      </div>
+      <div class="categories-grid">
+        <a href="shop.html" class="category-card">
+          <span class="category-icon">🎂</span>
+          <div class="category-name">Birthday Cakes</div>
+          <div class="category-count">12 varieties</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <span class="category-icon">💍</span>
+          <div class="category-name">Wedding Cakes</div>
+          <div class="category-count">8 varieties</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <span class="category-icon">🎨</span>
+          <div class="category-name">Custom Cakes</div>
+          <div class="category-count">Bespoke orders</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <span class="category-icon">🍰</span>
+          <div class="category-name">Mini Treats</div>
+          <div class="category-count">20+ options</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="products-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Most Loved</span>
+          <h2 class="section-title">Trending This Week</h2>
+        </div>
+        <a href="shop.html" class="btn-secondary">View All Cakes →</a>
+      </div>
+      <div class="product-grid" id="trending-grid"></div>
+    </div>
+  </section>
+
+  
+  <section class="delivery-section">
+    <div class="container">
+      <div class="delivery-card">
+        <div class="delivery-info">
+          <span class="section-label">New Feature</span>
+          <h2 class="section-title">Schedule Your Delivery</h2>
+          <p>Pick the perfect date and time for your cake to arrive — fresh, on-time, and exactly as ordered.</p>
+          <div class="delivery-perks">
+            <div class="delivery-perk">
+              <div class="perk-icon">🚚</div>
+              <span>Same-day delivery available before 10 AM</span>
+            </div>
+            <div class="delivery-perk">
+              <div class="perk-icon">❄️</div>
+              <span>Temperature-controlled packaging</span>
+            </div>
+            <div class="delivery-perk">
+              <div class="perk-icon">📦</div>
+              <span>Elegant gift box included</span>
+            </div>
+          </div>
+        </div>
+        <div class="delivery-form">
+          <h3>Pick Your Delivery Slot</h3>
+          <div class="form-group">
+            <label for="delivery-date">Delivery Date</label>
+            <input type="date" id="delivery-date" name="delivery-date">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="delivery-time">Time Slot</label>
+              <select id="delivery-time" name="delivery-time">
+                <option value="">Select time</option>
+                <option value="9:00 AM – 12:00 PM">9:00 AM – 12:00 PM</option>
+                <option value="12:00 PM – 3:00 PM">12:00 PM – 3:00 PM</option>
+                <option value="3:00 PM – 6:00 PM">3:00 PM – 6:00 PM</option>
+                <option value="6:00 PM – 8:00 PM">6:00 PM – 8:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="delivery-note">Special Note</label>
+              <input type="text" id="delivery-note" placeholder="e.g. Ring doorbell" name="delivery-note">
+            </div>
+          </div>
+          <div id="delivery-msg" style="display:none; padding:12px 16px; background:var(--pink-light); border-radius:12px; font-size:14px; color:var(--text-dark); margin-bottom:16px; line-height:1.6;"></div>
+          <button id="delivery-confirm" class="btn-primary" style="width:100%">Confirm Delivery Slot 📅</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Customer Love</span>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-subtitle">Real stories from people who experienced the Velvet Crust difference.</p>
+        </div>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The Velvet Dream cake was the centerpiece of our wedding. Every guest was asking where it came from. Absolutely breathtaking flavor!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👰</div>
+            <div>
+              <div class="testimonial-name">Sofia Reyes</div>
+              <div class="testimonial-role">Bride, Wedding 2024</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Ordered the Strawberry Bliss for my daughter's birthday. She cried tears of joy — the taste was out of this world. Will order again!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩</div>
+            <div>
+              <div class="testimonial-name">Maricel Santos</div>
+              <div class="testimonial-role">Loyal Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The custom cake they made for our office anniversary was beyond expectations. Professional, beautiful, and absolutely delicious."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👨‍💼</div>
+            <div>
+              <div class="testimonial-name">David Lim</div>
+              <div class="testimonial-role">Corporate Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-label">Find Us</span>
+          <h2 class="section-title">Visit Our Bakery</h2>
+          <p>Come by and see our daily creations in person, or reach out and we'll bring the sweetness to you.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-item-text">
+                <strong>Location</strong>
+                <span>123 Petal Lane, Quezon City, Metro Manila</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-item-text">
+                <strong>Phone</strong>
+                <span>+63 912 345 6789</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <span>hello@velvetcrust.ph</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div class="contact-item-text">
+                <strong>Hours</strong>
+                <span>Mon–Sat: 8AM – 8PM &nbsp;|&nbsp; Sun: 9AM – 6PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <div class="map-placeholder">
+            🗺️
+            <p>123 Petal Lane, Quezon City</p>
+          </div>
+          <div class="contact-hours">
+            <div class="hours-item"><strong>Mon – Fri</strong><span>8:00 AM – 8:00 PM</span></div>
+            <div class="hours-item"><strong>Saturday</strong><span>8:00 AM – 8:00 PM</span></div>
+            <div class="hours-item"><strong>Sunday</strong><span>9:00 AM – 6:00 PM</span></div>
+            <div class="hours-item"><strong>Holidays</strong><span>10:00 AM – 5:00 PM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text">Velvet <span>Crust</span></div>
+          <p>Handcrafted cakes made with premium ingredients and a whole lot of love. Delivered to your door, fresh daily.</p>
+          <div class="footer-socials">
+            <a class="footer-social-btn" href="#" aria-label="Instagram">📸</a>
+            <a class="footer-social-btn" href="#" aria-label="Facebook">📘</a>
+            <a class="footer-social-btn" href="#" aria-label="TikTok">🎵</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">Birthday Cakes</a></li>
+            <li><a href="shop.html">Wedding Cakes</a></li>
+            <li><a href="shop.html">Custom Cakes</a></li>
+            <li><a href="shop.html">Mini Treats</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Our Bakers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Delivery Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Velvet Crust Cakes. All rights reserved.</span>
+        <span>Made with 🩷 in the Philippines</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
