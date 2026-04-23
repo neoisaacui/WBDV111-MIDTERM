@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courtside Hoops — NBA Trading Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <span class="logo-icon">🏀</span>
+    <span class="logo-text">COURTSIDE<em>HOOPS</em></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+    <li><a href="" onclick="showPage('home')">Gallery</a></li>
+    <li><a href="" onclick="showPage('home')">Announcements</a></li>
+    <li><a href="" onclick="showPage('home')">About</a></li>
+    <li><a href="" onclick="showPage('home')">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-icon" onclick="openCart()" title="Cart">
+      🛒 <span class="cart-badge" id="cart-count">0</span>
+    </button>
+    <button class="btn-icon" onclick="openLogin()" title="Account">👤</button>
+  </div>
+</nav>
+
+<!-- PAGES -->
+<main id="app">
+
+  <!-- HOME PAGE -->
+  <div id="page-home" class="page active">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <p class="hero-label">The Premium NBA Card Marketplace</p>
+        <h1 class="hero-title">OWN THE<br><span class="hero-accent">COURT.</span></h1>
+        <p class="hero-sub">Browse thousands of rare, rookie, and limited-edition NBA trading cards from legends to current superstars.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('home')">Shop Cards</button>
+          <button class="btn-outline" onclick="showPage('home')">View Gallery</button>
+        </div>
+      </div>
+      <div class="hero-cards">
+        <div class="floating-card c1">
+          <div class="card-inner">
+            <div class="card-player-num">#23</div>
+            <div class="card-player-name">JORDAN</div>
+            <div class="card-badge">ROOKIE</div>
+          </div>
+        </div>
+        <div class="floating-card c2">
+          <div class="card-inner">
+            <div class="card-player-num">#6</div>
+            <div class="card-player-name">JAMES</div>
+            <div class="card-badge">LEGEND</div>
+          </div>
+        </div>
+        <div class="floating-card c3">
+          <div class="card-inner">
+            <div class="card-player-num">#30</div>
+            <div class="card-player-name">CURRY</div>
+            <div class="card-badge">RARE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-num">12,000+</span><span class="stat-label">Cards Listed</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">4,800+</span><span class="stat-label">Collectors</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">99%</span><span class="stat-label">Satisfaction</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Shipping ₱5k+</span></div>
+    </div>
+
+    <!-- Featured Cards -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Cards</h2>
+        <button class="btn-text" onclick="showPage('home')">View All →</button>
+      </div>
+      <div class="card-grid" id="featured-grid"></div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section categories-section">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="categories-grid">
+        <div class="cat-card" onclick="filterAndShow
+          <span class="cat-icon">⭐</span>
+          <span class="cat-name">Rookie Cards</span>
+          <span class="cat-count">2,400+</span>
+        </div>
+        <div class="cat-card" onclick="filterAndShow
+          <span class="cat-icon">🏆</span>
+          <span class="cat-name">Legends</span>
+          <span class="cat-count">980+</span>
+        </div>
+        <div class="cat-card" onclick="filterAndShow
+          <span class="cat-icon">💎</span>
+          <span class="cat-name">Rare Series</span>
+          <span class="cat-count">340+</span>
+        </div>
+        <div class="cat-card" onclick="filterAndShow
+          <span class="cat-icon">🔥</span>
+          <span class="cat-name">Limited Edition</span>
+          <span class="cat-count">120+</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="promo-banner">
+      <div class="promo-content">
+        <span class="promo-tag">Limited Time</span>
+        <h3>Get 15% off your first order</h3>
+        <p>Use code <strong>COURTSIDE15</strong> at checkout</p>
+        <button class="btn-primary" onclick="showPage('home')">Shop Now</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- SHOP PAGE -->
+  <div id="page-shop" class="page">
+    <div class="page-header">
+      <h1>Shop NBA Cards</h1>
+      <p>Discover rare and collectible cards from your favorite players</p>
+    </div>
+    <div class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h4>Category</h4>
+          <label><input type="radio" name="cat" value="all" checked onchange="applyFilters()"> All Cards</label>
+          <label><input type="radio" name="cat" value="Rookie" onchange="applyFilters()"> Rookie</label>
+          <label><input type="radio" name="cat" value="Legend" onchange="applyFilters()"> Legend</label>
+          <label><input type="radio" name="cat" value="Rare" onchange="applyFilters()"> Rare</label>
+          <label><input type="radio" name="cat" value="Limited" onchange="applyFilters()"> Limited Edition</label>
+        </div>
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <label><input type="radio" name="price" value="all" checked onchange="applyFilters()"> All</label>
+          <label><input type="radio" name="price" value="low" onchange="applyFilters()"> Under ₱1,000</label>
+          <label><input type="radio" name="price" value="mid" onchange="applyFilters()"> ₱1,000–₱5,000</label>
+          <label><input type="radio" name="price" value="high" onchange="applyFilters()"> Above ₱5,000</label>
+        </div>
+        <div class="filter-group">
+          <h4>Sort By</h4>
+          <select id="sort-select" onchange="applyFilters()">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+        <button class="btn-outline full-w" onclick="resetFilters()">Reset Filters</button>
+      </aside>
+      <!-- Product Grid -->
+      <div class="shop-main">
+        <div class="search-bar-wrap">
+          <input type="text" id="search-input" placeholder="Search player, team, series..." oninput="applyFilters()"/>
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="card-grid" id="shop-grid"></div>
+        <p id="no-results" style="display:none;text-align:center;color:#888;padding:3rem;">No cards match your filters.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY PAGE -->
+  <div id="page-gallery" class="page">
+    <div class="page-header">
+      <h1>Card Gallery</h1>
+      <p>A showcase of our most prized and visually stunning cards</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+
+  <!-- ANNOUNCEMENTS PAGE -->
+  <div id="page-announcements" class="page">
+    <div class="page-header">
+      <h1>Announcements</h1>
+      <p>News, drops, and updates from Courtside Hoops</p>
+    </div>
+    <div class="announcements-wrap">
+      <article class="announcement-card">
+        <div class="ann-date">June 10, 2025</div>
+        <h3>🔥 New Summer Drop: 2025 Platinum Series</h3>
+        <p>We're thrilled to announce the release of 100 ultra-rare Platinum Series cards featuring this season's top performers. Limited quantities — first come, first served!</p>
+        <button class="btn-outline sm" onclick="showPage('#')">Shop Now</button>
+      </article>
+      <article class="announcement-card">
+        <div class="ann-date">May 28, 2025</div>
+        <h3>🏆 Flash Sale — 20% Off Legend Cards</h3>
+        <p>For 48 hours only, all Legend category cards are 20% off. Don't miss your chance to grab iconic cards from the greatest players in NBA history.</p>
+        <button class="btn-outline sm" onclick="filterAndShow('Legend')">Browse Legends</button>
+      </article>
+      <article class="announcement-card">
+        <div class="ann-date">May 15, 2025</div>
+        <h3>📦 Free Shipping Now Available on ₱5,000+ Orders</h3>
+        <p>We're making it easier and cheaper to grow your collection! Orders totaling ₱5,000 or more now qualify for free standard shipping nationwide.</p>
+      </article>
+      <article class="announcement-card">
+        <div class="ann-date">April 30, 2025</div>
+        <h3>❓ FAQ Section Updated</h3>
+        <p>We've updated our FAQ page with answers to the most common questions about authenticity verification, return policy, and trading procedures.</p>
+        <button class="btn-outline sm" onclick="showPage('contact')">Go to FAQ</button>
+      </article>
+    </div>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div id="page-about" class="page">
+    <div class="page-header">
+      <h1>About Courtside Hoops</h1>
+      <p>The premium digital home for NBA card collectors</p>
+    </div>
+    <div class="about-wrap">
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>🏀 Our Story</h3>
+          <p>Courtside Hoops was built by collectors, for collectors. Born out of frustration with fragmented marketplaces, we set out to create one unified, beautiful platform where NBA card enthusiasts can browse, buy, and trade the cards they love.</p>
+        </div>
+        <div class="about-block">
+          <h3>🎯 Our Mission</h3>
+          <p>To deliver a reliable, engaging, and user-friendly marketplace for rare and collectible NBA trading cards — connecting fans, streamlining transactions, and celebrating the culture of the game.</p>
+        </div>
+        <div class="about-block">
+          <h3>💎 Our Promise</h3>
+          <p>Every card listed on our platform is verified for authenticity. We prioritize quality, transparency, and collector satisfaction above all else.</p>
+        </div>
+        <div class="about-block">
+          <h3>🚀 The Future</h3>
+          <p>We're working on real-time inventory, a loyalty points system, and expanded card detail pages with live player statistics. Courtside Hoops is just getting started.</p>
+        </div>
+      </div>
+      <div class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">JC</div>
+            <h4>Jacky B. Chen</h4>
+            <p>Designer & Developer</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">NG</div>
+            <h4>Neo Isaac Gueno</h4>
+            <p>CEO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="page-contact" class="page">
+    <div class="page-header">
+      <h1>Contact & FAQ</h1>
+      <p>We're here to help. Reach out or check below.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-form-box">
+        <h3>Send Us a Message</h3>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your full name"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Regarding..."/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="How can we help you?"></textarea>
+        </div>
+        <button class="btn-primary" onclick="alert('Message sent! We\'ll get back to you soon.')">Send Message</button>
+      </div>
+      <div class="faq-box">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">Are the cards authentic? <span>+</span></button>
+            <div class="faq-a">Yes! Every card is verified by our team before being listed. We offer a full refund for any card that doesn't match its description.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">How does shipping work? <span>+</span></button>
+            <div class="faq-a">Orders are shipped within 2–3 business days. Free shipping is available for orders ₱5,000 and above. Cards are packed securely in protective sleeves and hard cases.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">Can I trade cards instead of buying? <span>+</span></button>
+            <div class="faq-a">Yes! Visit the Shop section and click "Trade" on any listing. You can propose a trade using cards from your collection.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">What payment methods are accepted? <span>+</span></button>
+            <div class="faq-a">We accept GCash, PayMaya, credit/debit cards (Visa, Mastercard), and bank transfer via InstaPay.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFAQ(this)">What is your return policy? <span>+</span></button>
+            <div class="faq-a">Returns are accepted within 7 days of receipt if the item is not as described. Contact us with photos and your order number to start a return.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- CART MODAL -->
+<div id="cart-modal" class="modal-overlay" onclick="closeModal('cart-modal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="modal-close" onclick="closeModal('cart-modal')">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <strong id="cart-total">₱0</strong></div>
+      <button class="btn-primary full-w" onclick="alert('Checkout coming soon!'); closeModal(\'cart-modal\')">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="login-modal" class="modal-overlay" onclick="closeModal('login-modal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3>👤 Login / Register</h3>
+      <button class="modal-close" onclick="closeModal('login-modal')">✕</button>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com"/>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="••••••••"/>
+    </div>
+    <button class="btn-primary full-w" onclick="alert('Login feature coming soon!'); closeModal('login-modal')">Login</button>
+    <p style="text-align:center;margin-top:1rem;font-size:.9rem">Don't have an account? <a href="#" style="color:var(--red)">Register</a></p>
+  </div>
+</div>
+
+<!-- ITEM DETAIL MODAL -->
+<div id="detail-modal" class="modal-overlay" onclick="closeModal('detail-modal')">
+  <div class="modal modal-lg" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('detail-modal')">✕</button>
+    <div id="detail-content"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast">Added to cart!</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">🏀</span>
+      <span class="logo-text">COURTSIDE<em>HOOPS</em></span>
+      <p>The premium NBA card marketplace for collectors everywhere.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Navigate</h5>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('home')">Shop</a>
+      <a href="#" onclick="showPage('home')">Gallery</a>
+      <a href="#" onclick="showPage('home')">About</a>
+    </div>
+    <div class="footer-links">
+      <h5>Help</h5>
+      <a href="#" onclick="showPage('home')">Contact</a>
+      <a href="#" onclick="showPage('home')">Announcements</a>
+      <a href="#" onclick="showPage('home')">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Courtside Hoops — A Web Development Project by Jacky B. Chen & Neo Isaac Gueno | OLFU | WBDV111</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
